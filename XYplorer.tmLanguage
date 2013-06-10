@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>uuid</key>
+	<string>77AC23B6-8A90-11D9-BAA4-000A9584EC8X</string>
+	<key>name</key>
+	<string>XYPlorer</string>
+	<key>scopeName</key>
+	<string>source.xys</string>
+	<key>fileTypes</key>
+		<array>
+		<string>xys</string>
+		</array>
+
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>name</key>
+			<string>comment.line.xys</string>
+			<key>match</key>
+			<string>(?&lt;!tp:)//.*?$</string>  <!-- exclude tp:  at the begining to avoid http:// and ftp:// -->
+		</dict>
+
+		<dict>
+			<key>name</key>
+			<string>comment.block</string>
+			<key>begin</key>
+			<string>/\*</string>   <!-- JSON-Escaped \  and * -->
+			<key>end</key>
+			<string>\*/</string>  <!-- Regex-Escaped * and / -->
+		</dict>
+
+		<dict>
+			<key>name</key>
+			<string>entity.name.function</string>
+			<key>match</key>
+			<string>\|:\w+|(?&lt;!\w)#[\d\w]+(?!\w)|\b(?i)(?:abs|asc|attrstamp|catalogreport|ceil|chr|compare|confirm|ctbstate|datediff|eval|exists|filesize|filetype|floor|folderreport|format|formatbytes|formatdate|formatlist|get|getkey|getpathcomponent|gettoken|hash|hexdump|hextodec|html|input|inputfile|inputfolder|inputselect|isset|isunicode|listfolder|listpane|md5|new|now|popupmenu|property|quote|rand|readfile|readurl|recase|refreshperms|regexmatches|regexreplace|rename|renameitem|replace|replacelist|report|resolvepath|rotate|round|sel|self|sendkeys|set|setting|sortby|sound|status|step|strlen|strpos|strrepeat|sub|substr|sync|tab|tabset|tag|taglist|toolbar|trim|urldecode|urlencode|utf8decode|utf8encode|wait|writefile)(?=\()|(?&lt;!["|'\.,])\b(?:assert|backupto|beep|box|br|break|button|catalogload|charview|continue|copy|copyas|copydata|copyitem|copytext|copyto|delete|download|echo|end|exit|filter|focus|global|goto|highlight|incr|internetflags|load|loadsearch|loadtree|makecoffee|moveas|moveto|msg|open|openwith|perm|quickfileview|readpv|releaseglobals|rtfm|run|savesettings|selectitems|selfilter|seltab|settingp|swapnames|text|timestamp|unset|unstep|wipe|writepv|setkey)\s</string>    <!-- (?i) = Case-insensitive;  \b = whole-word   (?: = No backreference, just to improve speed-->
+		</dict>
+
+		<dict>
+			<key>name</key>
+			<string>keyword</string>
+			<key>match</key>
+			<string>\b(?i)(?:foreach|break|continue|while|if|else|elseif)\b</string>    <!-- (?i) = Case-insensitive;  \b = whole-word   (?: = No backreference, just to improve speed-->
+		</dict>
+
+		<dict>
+			<key>name</key>
+			<string>variable.parameter.xys</string>
+			<key>match</key>
+			<string>\$\w+|&lt;\w+&gt;|%\w+%|{#}|{Name}|{Ext}|{Size}|{Type}|{Created}|{Modified}| {Accessed}|{Attr}|{Len}|{Label}|{Tags}|{Comment}|{Total Size}|{Used Space}|{Free Space}|{Free %}|{Per Cluster}|{Vol Serial}|{File System}</string> 			<!-- Original Regex:  \$\w+|<\w+>  then escaped in accordance with XML -->
+		</dict>
+
+		<dict>
+			<key>name</key>
+			<string>string</string>
+			<key>match</key>
+			<string>["';]</string>     <!-- If you want to colorize text between quote, use this: (?&lt;=&quot;)./+(?=&quot;)    Original Regex:  (?<=").+(?=") then escaped in accordance with xml-->
+		</dict>
+
+		<dict>
+			<key>name</key>
+			<string>constant.numeric.xys</string>
+			<key>match</key>
+			<string>(?&lt;!\w)-?\d+[/%\.]?(?!\w)</string>  <!-- Original Regex: (?<!\w)-?\d+[/%\.]?(?!\w)   then escaped per XML.  You can also use simple form: \b(\d+)\b -->
+		</dict>
+
+		<dict>
+			<key>name</key>
+			<string>keyword.operator</string>
+			<key>match</key>
+			<string>([\!)(){},]|[\*\+-\/\^%]|\sUnLikeI\s|\sLikeI\s|\sAND\s|\sOR\s|\sXOR\s|\sNOT\s|\s\|\|\s|\B-\B|=|\s+\.\s+|(?&lt;!\w)&gt;|&lt;(?!\w)|\B&amp;?\W&amp;\B)</string>   <!--Match:  ! = || LikeI UnLikeI < > & && -->
+		</dict>
+	</array>
+</dict>
+</plist>

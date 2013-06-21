@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-  <key>uuid</key>
+	<key>uuid</key>
 	<string>77AC23B6-8A90-11D9-BAA4-000A9584EC8X</string>
 	<key>name</key>
 	<string>XYPlorer</string>
@@ -24,7 +24,7 @@
 
 		<dict>
 			<key>name</key>
-			<string>comment.block</string>
+			<string>comment.block.xys</string>
 			<key>begin</key>
 			<string>/\*</string>   <!-- JSON-Escaped \  and * -->
 			<key>end</key>
@@ -33,14 +33,14 @@
 
 		<dict>
 			<key>name</key>
-			<string>entity.name.function</string>
+			<string>entity.name.function.xys</string>
 			<key>match</key>
-			<string>\|:\w+|(?&lt;!\w)#[\d\w]+(?!\w)|\b(?i)(?:abs|asc|attrstamp|catalogreport|ceil|chr|compare|confirm|ctbstate|datediff|eval|exists|filesize|filetype|floor|folderreport|format|formatbytes|formatdate|formatlist|get|getkey|getpathcomponent|gettoken|hash|hexdump|hextodec|html|input|inputfile|inputfolder|inputselect|isset|isunicode|listfolder|listpane|md5|new|now|popupmenu|property|quote|rand|readfile|readurl|recase|refreshperms|regexmatches|regexreplace|rename|renameitem|replace|replacelist|report|resolvepath|rotate|round|sel|self|sendkeys|set|setting|sortby|sound|status|step|strlen|strpos|strrepeat|sub|substr|sync|tab|tabset|tag|taglist|toolbar|trim|urldecode|urlencode|utf8decode|utf8encode|wait|writefile)(?=\()|(?&lt;!["|'\.,])\b(?:assert|backupto|beep|box|br|break|button|catalogload|charview|continue|copy|copyas|copydata|copyitem|copytext|copyto|delete|download|echo|end|exit|filter|focus|global|goto|highlight|incr|internetflags|load|loadsearch|loadtree|makecoffee|moveas|moveto|msg|open|openwith|perm|quickfileview|readpv|releaseglobals|rtfm|run|savesettings|selectitems|selfilter|seltab|settingp|swapnames|text|timestamp|unset|unstep|wipe|writepv|setkey)\s</string>    <!-- (?i) = Case-insensitive;  \b = whole-word   (?: = No backreference, just to improve speed-->
+			<string>\|:\w+|(?&lt;!\w)#[\d\w]+(?!\w)|\b(?i)(?:abs|asc|attrstamp|catalogreport|ceil|chr|compare|CompareFiles|confirm|ctbstate|datediff|eval|exists|filesize|filetype|floor|folderreport|format|formatbytes|formatdate|formatlist|get|getkey|getpathcomponent|gettoken|hash|hexdump|hextodec|html|input|inputfile|inputfolder|inputselect|isset|isunicode|listfolder|listpane|md5|new|now|popupmenu|property|quote|rand|readfile|readurl|recase|refreshperms|regexmatches|regexreplace|rename|renameitem|replace|replacelist|report|resolvepath|rotate|round|sel|self|sendkeys|set|setting|sortby|sound|status|step|strlen|strpos|strrepeat|sub|substr|sync|tab|tabset|tag|taglist|toolbar|trim|urldecode|urlencode|utf8decode|utf8encode|wait|writefile)(?=\()|(?&lt;!["|'\.,])\b(?:assert|backupto|beep|box|br|break|button|catalogload|hashlist|charview|continue|copy|copyas|copydata|copyitem|copytext|copyto|delete|download|dual:|echo|end|exit|filter|focus|global|goto|highlight|incr|internetflags|load|loadsearch|loadtree|makecoffee|moveas|moveto|msg|open|openwith|perm|quickfileview|readpv|releaseglobals|rtfm|run|savesettings|selectitems|selfilter|seltab|settingp|swapnames|text|timestamp|unset|unstep|wipe|writepv|setkey)(?!\w)</string>    <!-- (?i) = Case-insensitive;  \b \b = whole-word   (?: = No backreference, just to improve speed-->
 		</dict>
 
 		<dict>
 			<key>name</key>
-			<string>keyword</string>
+			<string>keyword.control.xys</string>
 			<key>match</key>
 			<string>\b(?i)(?:foreach|break|continue|while|if|else|elseif)\b</string>    <!-- (?i) = Case-insensitive;  \b = whole-word   (?: = No backreference, just to improve speed-->
 		</dict>

@@ -1,4 +1,7 @@
 {
 	"extensions":"xys",
-	"word_wrap": false
+	"translate_tabs_to_spaces": false,
+	"word_wrap": false,
+	"xypath": "E:\\7Utilities\\XYplorer",
+	"tab_size": 2,
 }

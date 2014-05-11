@@ -1,0 +1,10 @@
+<snippet>
+	<content>
+foreach(${1:\$item}, ${2:\$ListOfTokens}, ${3:"|"}) {
+	$4;
+}
+	</content>
+	<tabTrigger>foreach</tabTrigger>
+	<scope>source.xys</scope>
+	<description>Foreach selitems</description>
+</snippet>

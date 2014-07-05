@@ -1,9 +1,10 @@
 {
 	"extensions":"xys",
+	"default_encoding": "UTF-16 LE with BOM",
 	"word_wrap": false,
 	"match_brackets_angle": true,
-	"xypath": "E:\\7Utilities\\XYplorer",
-	"word_separators": "./\\()\"'-:,.;<>~!@#^&*|+=[]{}`~?",  //Compare with Default setting, I removed $ and % so that typing these char will trigger auto complete
+	"translate_tabs_to_spaces": false,
+	"word_separators": "./\\()\"'-:,.;>~!@#^&*|+=[]{}`~?",  //Compare with Default setting, I removed 3 characters:  < $ %   so that typing these char will trigger auto complete
 	"tab_size": 2,
 	"xypath": "E:\\7Utilities\\XYplorer",
 }

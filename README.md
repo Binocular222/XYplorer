@@ -2,7 +2,7 @@ XYplorer-syntax-for-Sublime-Text
 ================================
 
 - usage: 
-   + Copy to \Sublime Text\Data\Packages\XYplore
+   + Copy to \Sublime Text\Data\Packages\XYplorer
    + Open file XYplorer.sublime-settings > edit line "xypath": "E:\\Utilities\\XYplorer"
 - Contextual help:
    + Place cursor on any function such as "replacelist()" > Ctrl+enter will open the corresponding reference in XYplorer help file

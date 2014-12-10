@@ -648,6 +648,8 @@ class contextual_help_xys(sublime_plugin.TextCommand):
 			# ScopeText = ScopeText.replace("#", "_")
 			arg = xypath + "\\XYplorer.chm::/idh_scripting_comref.htm#idh_sc_" + ScopeText
 			subprocess.Popen(["hh.exe", arg])
+		elif ScopeName == "source.xys variable.parameter.xys":
+			subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting.htm#idh_scripting_variables"])
 		elif ScopeName == "source.xys variable.parameter.native.xys":
 			subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_variables.htm"])
 		elif ScopeName == "source.xys keyword.operator":

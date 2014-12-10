@@ -56,7 +56,14 @@
 			<key>name</key>
 			<string>variable.parameter.xys</string>
 			<key>match</key>
-			<string>\$\w+|&lt;\w+&gt;|%\w+%|{#}|{Name}|{Ext}|{Size}|{Type}|{Created}|{Modified}| {Accessed}|{Attr}|{Len}|{Label}|{Tags}|{Comment}|{Total Size}|{Used Space}|{Free Space}|{Free %}|{Per Cluster}|{Vol Serial}|{File System}</string> 			<!-- Original Regex:  \$\w+|<\w+>  then escaped in accordance with XML -->
+			<string>\$\w+</string> 			<!-- Original Regex:  \$\w+|<\w+>  then escaped in accordance with XML -->
+		</dict>
+
+		<dict>
+			<key>name</key>
+			<string>variable.parameter.native.xys</string>
+			<key>match</key>
+			<string>&lt;\w+&gt;|%\w+%|{#}|{Name}|{Ext}|{Size}|{Type}|{Created}|{Modified}| {Accessed}|{Attr}|{Len}|{Label}|{Tags}|{Comment}|{Total Size}|{Used Space}|{Free Space}|{Free %}|{Per Cluster}|{Vol Serial}|{File System}</string> 			<!-- Original Regex:  \$\w+|<\w+>  then escaped in accordance with XML -->
 		</dict>
 
 		<dict>
@@ -77,7 +84,14 @@
 			<key>name</key>
 			<string>keyword.operator</string>
 			<key>match</key>
-			<string>([\!)(){},]|[\*\+-\/\^%]|\sUnLikeI\s|\sLikeI\s|\sAND\s|\sOR\s|\sXOR\s|\sNOT\s|\s\|\|\s|\B-\B|=|\s+\.\s+|(?&lt;!\w)&gt;|&lt;(?!\w)|\B&amp;?\W&amp;\B)</string>   <!--Match:  ! = || LikeI UnLikeI < > & && -->
+			<string>([\!)(){},]|[\*\+-\/\^%]|\sUnLikeI\s|\sLikeI\s|\sAND\s|\sOR\s|\sXOR\s|\sNOT\s|\s\|\|\s|\B-\B|=|\s+\.\s+|(?&lt;!\w)&gt;|&lt;(?![\w&lt;])|\B&amp;?\W&amp;\B)</string>   <!--Match:  ! = || LikeI UnLikeI < > & && -->
+		</dict>
+
+		<dict>
+			<key>name</key>
+			<string>keyword.operator.heredoc</string>
+			<key>match</key>
+			<string>&lt;{3}</string>
 		</dict>
 	</array>
 </dict>

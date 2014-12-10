@@ -656,7 +656,7 @@ class contextual_help_xys(sublime_plugin.TextCommand):
 			subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting_operatorprecedence"])
 		elif ScopeName == "source.xys keyword.operator.heredoc":
 			subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting_heredoc"])
-		elif "keyword.control" in ScopeName:
+		elif ScopeName == "source.xys keyword.control.xys":
 			ScopeTextLower = ScopeText.lower()
 			if ScopeTextLower == "if" or ScopeTextLower == "elseif" or ScopeTextLower == "else":
 				subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting.htm#idh_scripting_ifthen"])

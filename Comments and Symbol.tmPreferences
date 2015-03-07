@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-  <key>name</key>
+	<key>name</key>
 	<string>Comments</string>
 	<key>scope</key>
 	<string>source.xys</string>
@@ -29,6 +29,10 @@
 				<string>*/</string>
 			</dict>
 		</array>
+		<key>showInSymbolList</key>
+		<integer>0</integer>
+		<key>showInIndexedSymbolList</key>
+		<string>0</string>
 	</dict>
 	<key>uuid</key>
 	<string>77AC23B6-8A90-11D9-BAA4-000A9584EC8X</string>

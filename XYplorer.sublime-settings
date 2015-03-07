@@ -6,5 +6,5 @@
 	"translate_tabs_to_spaces": false,
 	"word_separators": "./\\()\"'-:,.;>~!@#^&*|+=[]{}`~?",  //Compare with Default setting, I removed 3 characters:  < $ %   so that typing these char will trigger auto complete
 	"tab_size": 2,
-	"xypath": "E:\\7Utilities\\XYplorer",
+	"xypath": "E:\\Utilities\\XYplorer",
 }

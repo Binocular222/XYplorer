@@ -1,0 +1,10 @@
+<snippet>
+	<content>
+&lt;&lt;&lt;#NOWDOC
+$1
+#'NOWDOC';
+	</content>
+	<tabTrigger>nowdoc</tabTrigger>
+	<scope>source.xys</scope>
+	<description>NOWDOC</description>
+</snippet>

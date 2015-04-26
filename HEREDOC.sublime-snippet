@@ -1,0 +1,10 @@
+<snippet>
+	<content>
+&lt;&lt;&lt;#HEREDOC
+$1
+#HEREDOC;
+	</content>
+	<tabTrigger>heredoc</tabTrigger>
+	<scope>source.xys</scope>
+	<description>HEREDOC</description>
+</snippet>

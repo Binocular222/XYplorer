@@ -6,7 +6,9 @@ class contextual_help_xys(sublime_plugin.TextCommand):
 		CursorLocation = self.view.sel()[0]
 		ScopeName = self.view.scope_name(CursorLocation.a).strip()
 		ScopeText = self.view.substr(self.view.extract_scope(CursorLocation.a))
-		if ScopeName == "source.xys entity.name.function.CommandID.xys":
+		if ScopeName == "source.xys UDF.xys":
+			self.view.window().run_command('goto_definition')
+		elif ScopeName == "source.xys entity.name.function.CommandID.xys":
 			if ScopeText == "#100": sublime.status_message('File | To Clipboard | - submenu -')
 			elif ScopeText == "#101": sublime.status_message('File | To Clipboard | Item Path/Name(s)  (Ctrl+P)')
 			elif ScopeText == "#102": sublime.status_message('File | To Clipboard | Item Name(s)   (Ctrl+Shift+P)')

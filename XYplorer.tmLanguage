@@ -11,6 +11,8 @@
 	<key>fileTypes</key>
 		<array>
 		<string>xys</string>
+		<string>inc</string>
+		<string>xyi</string>
 		</array>
 
 	<key>patterns</key>
@@ -35,7 +37,7 @@
 			<key>name</key>
 			<string>entity.name.function.xys</string>   <!-- Some functions need round bracket such as abs() -->
 			<key>match</key>
-			<string>(?i)\b(?:abs|asc|attrstamp|base64encode|base64decode|catalogreport|ceil|chr|colorfilter|columnlayout|compare|confirm|copier|ctbicon|ctbname|ctbstate|datediff|eval|exists|extracttext|extratag|filesequal|filesize|filetype|floor|folderreport|foldersize|format|formatbytes|formatdate|formatlist|get|getkey|getpathcomponent|getsectionlist|gettoken|gettokenindex|hash|hexdump|hextodec|html|input|inputfile|inputfolder|inputselect|isset|isunicode|listfolder|listpane|loadlayout|md5|new|now|paperfolder|popupmenu|property|quote|rand|readfile|readurl|recase|refreshperms|regexmatches|regexreplace|renameitem|replace|replacelist|report|resolvepath|round|runret|self|setcolumns|seticons|setlayout|strlen|strpos|strrepeat|substr|sync|tab|tabset|tagitems|taglist|toolbar|trim|urldecode|urlencode|utf8decode|utf8encode|writefile|zip_add|zip_extract|zip_list)(?=\()</string>    <!-- (?i) = Case-insensitive;  \b \b = whole-word   (?: = No backreference, just to improve speed-->
+			<string>(?i)\b(?:abs|asc|attrstamp|base64encode|base64decode|catalogreport|ceil|chr|colorfilter|columnlayout|compare|confirm|copier|ctbicon|ctbname|ctbstate|datediff|eval|exists|extracttext|extratag|filesequal|filesize|filetype|floor|folderreport|foldersize|format|formatbytes|formatdate|formatlist|get|getkey|getpathcomponent|getsectionlist|gettoken|gettokenindex|hash|hexdump|hextodec|html|input|inputfile|inputfolder|inputselect|isset|isunicode|listfolder|listpane|loadlayout|md5|new|now|paperfolder|popupmenu|property|quote|rand|readfile|readurl|recase|refreshperms|regexmatches|regexreplace|renameitem|replace|replacelist|report|resolvepath|round|runret|self|SaveThumb|setcolumns|seticons|setlayout|strlen|strpos|strrepeat|substr|sync|tab|tabset|tagitems|taglist|toolbar|trim|urldecode|urlencode|utf8decode|utf8encode|writefile|zip_add|zip_extract|zip_list)(?=\()</string>    <!-- (?i) = Case-insensitive;  \b = whole-word   (?: = No backreference, just to improve speed-->
 		</dict>
 
 		<dict>
@@ -70,7 +72,7 @@
 			<key>name</key>
 			<string>variable.parameter.native.xys</string>
 			<key>match</key>
-			<string>&lt;[ .,\*\|\#\:\-\+\w]+&gt;|%\w+%|{Name}|{Ext}|{Size}|{Type}|{Created}|{Modified}| {Accessed}|{Attr}|{Len}|{Label}|{Tags}|{Comment}|{Total Size}|{Used Space}|{Free Space}|{Free %}|{Per Cluster}|{Vol Serial}|{File System}</string> 			<!-- Original Regex:  \$\w+|<\w+>  then escaped in accordance with XML -->
+			<string>&lt;[ .,\*\|\#\:\-\+\w]+&gt;|%\w+%|{Name}|{Ext}|{Size}|{Type}|{Created}|{Modified}| {Accessed}|{Attr}|{Len}|{Label}|{Tags}|{Comment}|{Total Size}|{Used Space}|{Free Space}|{Free %}|{Per Cluster}|{Vol Serial}|{File System}</string>          <!-- Original Regex:  \$\w+|<\w+>  then escaped in accordance with XML -->
 		</dict>
 
 		<dict>
@@ -100,6 +102,36 @@
 			<key>match</key>
 			<string>&lt;{3}</string>
 		</dict>
+
+		<dict>
+			<key>comment</key>
+			<string>User defined function (in .inc file)</string>
+			<key>match</key>
+			<string>(?i)(^function )(.+)(\(.+)</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.special.xys</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>meta.class.UDF.xys</string>
+				</dict>
+			</dict>
+		</dict>
+
+		<dict>
+			<key>comment</key>
+			<string>Allow Contextual Help to Goto Definition</string>
+			<key>name</key>
+			<string>UDF.xys</string>
+			<key>match</key>
+			<string>(?&lt;=\s).+(?=\()</string>
+		</dict>
+
 	</array>
 </dict>
 </plist>

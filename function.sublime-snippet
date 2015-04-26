@@ -1,0 +1,10 @@
+<snippet>
+	<content>
+function name(\$var) {
+	;
+}
+	</content>
+	<tabTrigger>function</tabTrigger>
+	<scope>source.xys</scope>
+	<description>Function</description>
+</snippet>

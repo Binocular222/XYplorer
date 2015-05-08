@@ -41,7 +41,7 @@ Alternative version: https://github.com/SammaySarkar/XYplorer
 	+ Doing `Tools > Build` will run the current script file in XYplorer.
 
 	+ **Tips**
-		- SubScripts, User-Defined Functions and Namespace declarations are listed in Symbols.
+		- User-Defined Functions and Namespace declarations are listed in Symbols.
 		- To assign XYplorer icon to .xys files in sidebar:
 			- Create an XYplorer icon in png format and save to \Data\Packages\Theme - Default\icons\file_type_xys.png
 			- The filename must be file_type_xys.png because it's defined in "Icon (xys).tmPreferences"

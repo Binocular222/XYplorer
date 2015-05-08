@@ -2,64 +2,90 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>uuid</key>
-	<string>77AC23B6-8A90-11D9-BAA4-000A9584EC8X</string>
 	<key>name</key>
-	<string>XYPlorer</string>
+	<string>XYplorer</string>
 	<key>scopeName</key>
 	<string>source.xys</string>
 	<key>fileTypes</key>
 		<array>
 		<string>xys</string>
-		<string>inc</string>
 		<string>xyi</string>
+		<string>inc</string>
 		</array>
 
 	<key>patterns</key>
 	<array>
+
 		<dict>
 			<key>name</key>
 			<string>comment.line.xys</string>
 			<key>match</key>
 			<string>(?&lt;!tp:)//.*?$</string>  <!-- exclude tp:  at the begining to avoid http:// and ftp:// -->
 		</dict>
-
 		<dict>
 			<key>name</key>
 			<string>comment.block.xys</string>
 			<key>begin</key>
-			<string>/\*</string>   <!-- JSON-Escaped \  and * -->
+			<string>/\*</string>
 			<key>end</key>
-			<string>\*/</string>  <!-- Regex-Escaped * and / -->
+			<string>\*/</string>
 		</dict>
 
 		<dict>
 			<key>name</key>
-			<string>entity.name.function.xys</string>   <!-- Some functions need round bracket such as abs() -->
+			<string>entity.name.function.xys</string>   <!-- native functions,eg: abs(num) -->
 			<key>match</key>
-			<string>(?i)\b(?:abs|asc|attrstamp|base64encode|base64decode|catalogreport|ceil|chr|colorfilter|columnlayout|compare|confirm|copier|ctbicon|ctbname|ctbstate|datediff|eval|exists|extracttext|extratag|filesequal|filesize|filetype|floor|folderreport|foldersize|format|formatbytes|formatdate|formatlist|get|getkey|getpathcomponent|getsectionlist|gettoken|gettokenindex|hash|hexdump|hextodec|html|input|inputfile|inputfolder|inputselect|isset|isunicode|listfolder|listpane|loadlayout|md5|new|now|paperfolder|popupmenu|property|quote|rand|readfile|readurl|recase|refreshperms|regexmatches|regexreplace|renameitem|replace|replacelist|report|resolvepath|round|runret|self|SaveThumb|setcolumns|seticons|setlayout|strlen|strpos|strrepeat|substr|sync|tab|tabset|tagitems|taglist|toolbar|trim|urldecode|urlencode|utf8decode|utf8encode|writefile|zip_add|zip_extract|zip_list)(?=\()</string>    <!-- (?i) = Case-insensitive;  \b = whole-word   (?: = No backreference, just to improve speed-->
+			<string>(?i)\b(?:abs|asc|attrstamp|base64encode|base64decode|caller|catalogreport|ceil|cell|chr|colorfilter|columnlayout|compare|confirm|copier|ctbicon|ctbname|ctbstate|datediff|eval|exists|extracttext|extratag|filesequal|filesize|filetype|floor|folderreport|foldersize|format|formatbytes|formatdate|formatlist|get|getinfo|getkey|getpathcomponent|getsectionlist|gettoken|gettokenindex|hash|hexdump|hextodec|html|input|inputfile|inputfolder|inputselect|isset|isunicode|listfolder|listpane|loadlayout|md5|new|now|paperfolder|popupmenu|property|quote|rand|readfile|readurl|recase|regexmatches|regexreplace|renameitem|replace|replacelist|report|resolvepath|round|row|runret|savethumb|self|setcolumns|seticons|setlayout|strlen|strpos|strrepeat|substr|sync|tab|tabset|tagitems|taglist|toolbar|trim|tweak|urldecode|urlencode|utf8decode|utf8encode|writefile|zip_add|zip_extract|zip_list)(?=\s*\()</string>
 		</dict>
 
 		<dict>
 			<key>name</key>
-			<string>entity.name.function.xys</string>  <!-- Some functions don't need round bracket -->
+			<string>entity.name.function.xys</string>  <!-- native commands,eg: beep freq,time -->
 			<key>match</key>
-			<string>(?i)\b(?:assert|backupto|beep|box|br|break|button|catalogload|charview|continue|copy|copyas|copydata|copyitem|copytext|copyto|delete|download|DUAL:|echo|end|exit|filter|focus|fresh|freshhere|global|goto|hashlist|highlight|incr|internetflags|load|loadsearch|loadtree|makecoffee|moveas|moveto|msg|open|openwith|perm|popupmainmenu|quickfileview|readpv|releaseglobals|rename|return|rotate|rtfm|run|savesettings|sel|selectitems|selfilter|seltab|sendkeys|set|setkey|setting|settingp|showhash|sortby|sound|status|sub|swapnames|tag|text|timestamp|unset|unthumb|wait|wipe|writepv)\b</string>    <!-- (?i) = Case-insensitive;  \b \b = whole-word   (?: = No backreference, just to improve speed-->
+			<string>(?i)\b(?:assert|backupto|beep|box|br|break|button|call|catalogload|charview|comparehash|comment|continue|copy|copyas|copydata|copyitem|copytext|copyto|delete|download|echo|edittags|end|exist|exit|filter|focus|fresh|freshhere|global|goto|hashlist|help|highlight|incr|info|internetflags|load|loadsearch|loadtree|logtofile|makecoffee|moveas|moveto|msecs|msg|open|openwith|perm|popupmainmenu|quickfileview|readpv|releaseglobals|rename|return|rotate|rtfm|run|savesettings|screen|sel|selectitems|selfilter|seltab|sendkeys|set|setkey|setting|settingp|showhash|showshellprops|snippet|sortby|sound|status|sub|swapnames|sysicons|tag|text|timestamp|unset|unthumb|userbutton|wait|winpos|winsize|wipe|writepv)(?=\s)</string>
 		</dict>
 
 		<dict>
 			<key>name</key>
 			<string>entity.name.function.CommandID.xys</string>
 			<key>match</key>
-			<string>(?&lt;!\w)#\d{1,4}(?!\w)</string>
+			<string>(?&lt;!\w)#\d{3,4}(?!\w)</string>
 		</dict>
 
 		<dict>
 			<key>name</key>
 			<string>keyword.control.xys</string>
 			<key>match</key>
-			<string>\b(?i)(?:step|unstep|break|continue|while|if|else|elseif|foreach)\b</string>    <!-- (?i) = Case-insensitive;  \b = whole-word   (?: = No backreference, just to improve speed-->
+			<string>(?i)\b(?:step|unstep|break|continue|while|if|else|elseif|foreach)\b</string>
 		</dict>
+
+		<dict>
+			<key>name</key>
+			<string>keyword.control.xys</string>
+			<key>match</key>
+			<string>(?i)^\s*include\b</string> <!-- INCLUDE may be indented -->
+		</dict>
+
+		<dict>
+			<key>comment</key>
+			<string>namespace definition</string>
+			<key>match</key>
+			<string>(?i)^(namespace)\s+(\w+)$</string> <!-- namespace cmd must be unindented -->
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.xys</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.section.xys</string>
+				</dict>
+			</dict>
+		</dict>
+
 
 		<dict>
 			<key>name</key>
@@ -72,48 +98,92 @@
 			<key>name</key>
 			<string>variable.parameter.native.xys</string>
 			<key>match</key>
-			<string>&lt;[ .,\*\|\#\:\-\+\w]+&gt;|%\w+%|{Name}|{Ext}|{Size}|{Type}|{Created}|{Modified}| {Accessed}|{Attr}|{Len}|{Label}|{Tags}|{Comment}|{Total Size}|{Used Space}|{Free Space}|{Free %}|{Per Cluster}|{Vol Serial}|{File System}</string>          <!-- Original Regex:  \$\w+|<\w+>  then escaped in accordance with XML -->
-		</dict>
-
-		<dict>
-			<key>name</key>
-			<string>string</string>
-			<key>match</key>
-			<string>["';]</string>     <!-- If you want to colorize text between quote, use this: (?&lt;=&quot;).+(?=&quot;)    Original Regex:  (?<=").+(?=") then escaped in accordance with xml-->
+			<string>&lt;[ .,\*\|\#\:\-\+\w]+&gt;|%[A-Za-z0-9()_-]+%</string> <!-- removed {templates}, consider them as strings -->
 		</dict>
 
 		<dict>
 			<key>name</key>
 			<string>constant.numeric.xys</string>
 			<key>match</key>
-			<string>(?&lt;!\w)-?\d+[/%\.]?(?!\w)</string>  <!-- Original Regex: (?<!\w)-?\d+[/%\.]?(?!\w)   then escaped per XML.  You can also use simple form: \b(\d+)\b -->
+			<string>(?&lt;!\w)-?\d+[/%\.]?(?!\w)</string>  <!-- Original Regex: (?<!\w)-?\d+[/%\.]?(?!\w) Simpler RegEx: \b(\d+)\b -->
 		</dict>
 
 		<dict>
 			<key>name</key>
 			<string>keyword.operator</string>
 			<key>match</key>
-			<string>([\!)(){},]|[\*\+-\/\^%]|\sUnLikeI\s|\sLikeI\s|\sAND\s|\sOR\s|\sXOR\s|\sNOT\s|\s\|\|\s|\B-\B|=|\s+\.\s+|(?&lt;!\w)&gt;|&lt;(?![\w&lt;])|\B&amp;?\W&amp;\B)</string>   <!--Match:  ! = || LikeI UnLikeI < > & && -->
+			<string>([\!)(){},]|[\*\+-\/\^%]|\sUnLikeI?\s|\sLikeI?\s|\sAND\s|\sOR\s|\sXOR\s|\sNOT\s|\s\|\|\s|\B-\B|=|\s+\.\s+|(?&lt;!\w)&gt;|&lt;(?![\w&lt;])|\B&amp;?\W&amp;\B)</string>   <!--Match:  ! = || LikeI? UnLikeI? AND OR NOT XOR < > && -->
 		</dict>
 
 		<dict>
 			<key>name</key>
-			<string>keyword.operator.heredoc</string>
-			<key>match</key>
-			<string>&lt;{3}</string>
+			<string>string.unquoted.nowdoc</string> <!-- radical nowdoc -->
+			<key>begin</key>
+			<string>&lt;{3}'([^#].*)'$</string>
+			<key>end</key>
+			<string>^\1;?$</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>string.unquoted.nowdoc</string> <!-- regular nowdoc -->
+			<key>begin</key>
+			<string>&lt;{3}#'(.*)'$</string>
+			<key>end</key>
+			<string>#\1</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>string.unquoted.heredoc</string> <!-- radical heredoc -->
+			<key>begin</key>
+			<string>&lt;{3}(#.*)$</string>
+			<key>end</key>
+			<string>\1</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>string.unquoted.heredoc</string> <!-- regular heredoc -->
+			<key>begin</key>
+			<string>&lt;{3}([^#](.*))$</string>
+			<key>end</key>
+			<string>^\1;?$</string>
 		</dict>
 
-		<dict>
+<!-- 		<dict>
 			<key>comment</key>
-			<string>User defined function (in .inc file)</string>
+			<string>matches subscript caption</string>
+			<key>name</key>
+			<string>string</string>
 			<key>match</key>
-			<string>(?i)(^function )(.+)(\(.+)</string>
+			<string>^\s*(&quot;.*?&quot;)</string>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.function.special.xys</string>
+					<string>scriptcaption.xys</string>
+				</dict>
+			</dict>
+		</dict> -->
+		<!-- string scope defined afterwards so it does not consume subscriptcaption region -->
+<!-- 		<dict>
+			<key>name</key>
+			<string>string</string>
+			<key>match</key>
+			<string>(&quot;|')(.*?)\1</string>
+		</dict> -->
+
+		<dict>
+			<key>comment</key>
+			<string>User-Defined function declaration</string>
+			<key>match</key>
+			<string>(?i)^\s*(function)\s+([\w:]+)(?=\s*\()</string>
+			<!-- function can be indented. Removed final (.+) to hilite pararms -->
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.xys</string>
 				</dict>
 				<key>2</key>
 				<dict>
@@ -127,9 +197,9 @@
 			<key>comment</key>
 			<string>Allow Contextual Help to Goto Definition</string>
 			<key>name</key>
-			<string>UDF.xys</string>
+			<string>entity.name.function.UDF.xys</string>
 			<key>match</key>
-			<string>(?&lt;=\s).+(?=\()</string>
+			<string>(?&lt;=\s)[\w:]+(?=\s*\()</string> <!-- (?<=\s).+(?=\() -->
 		</dict>
 
 	</array>

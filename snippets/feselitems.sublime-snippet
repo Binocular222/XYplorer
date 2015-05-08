@@ -1,7 +1,7 @@
 <snippet>
 	<content>
 \$selitems = get("SelectedItemsPathNames", "|");
-foreach(\$item, \$selitems) {
+foreach(\$item, \$selitems, "|") {
 	$1;
 }
 	</content>

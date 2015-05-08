@@ -1,10 +1,13 @@
 {
-	"extensions":"xys",
+	"extensions":["xys","xyi","inc"],
+	// "default_encoding": "UTF-8",
 	"default_encoding": "UTF-16 LE with BOM",
-	"word_wrap": false,
+	"default_line_ending": "windows",
+	"ensure_newline_at_eof_on_save": true, //helps with include files
 	"match_brackets_angle": true,
 	"translate_tabs_to_spaces": false,
-	"word_separators": "./\\()\"'-:,.;>~!@#^&*|+=[]{}`~?",  //Compare with Default setting, I removed 3 characters:  < $ %   so that typing these char will trigger auto complete
 	"tab_size": 2,
-	"xypath": "E:\\Utilities\\XYplorer",
+	"word_wrap": false,
+	"word_separators": "./\\()\"'-:,.;>~!@#^&*|+=[]{}`~?",  //removed < $ % compared to defaults, for triggering auto-completion
+	"xypath": "C:\\Program Files\\XYplorer"
 }

@@ -2,10 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>uuid</key>
-	<string>01c3e1de-9b7a-4c7c-9d2a-117efacb2100</string>
+	<!-- index UDFs -->
 	<key>name</key>
-	<string>Record Symbols</string>
+	<string>SymbolsUDF</string>
 	<key>scope</key>
 	<string>source.xys meta.class.UDF.xys</string>
 	<key>settings</key>
@@ -13,11 +12,13 @@
 		<key>showInSymbolList</key>
 		<integer>1</integer>
 		<key>symbolTransformation</key>
-		<string>/(\w)/\L$1/g</string>   <!-- Convert to lower case -->
+		<string>/(\w)/\L\1/g</string>   <!-- Convert to lower case -->
+		<!-- <string>/^(\w+)$/\L\1   [function]/g</string> -->
 		<key>showInIndexedSymbolList</key>
 		<string>1</string>
 		<key>symbolIndexTransformation</key>
-		<string>/(\w)/\L$1/g</string>
+		<string>/(\w)/\L\1/g</string>
+		<!-- <string>/^(\w+)$/\L\1   [function]/g</string> -->
 	</dict>
 </dict>
 </plist>

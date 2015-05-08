@@ -6,646 +6,11 @@ class contextual_help_xys(sublime_plugin.TextCommand):
 		CursorLocation = self.view.sel()[0]
 		ScopeName = self.view.scope_name(CursorLocation.a).strip()
 		ScopeText = self.view.substr(self.view.extract_scope(CursorLocation.a))
-		if ScopeName == "source.xys UDF.xys":
+		if ScopeName == "source.xys entity.name.function.UDF.xys":
+			# need to handle namespaces
 			self.view.window().run_command('goto_definition')
-		elif ScopeName == "source.xys entity.name.function.CommandID.xys":
-			if ScopeText == "#100": sublime.status_message('File | To Clipboard | - submenu -')
-			elif ScopeText == "#101": sublime.status_message('File | To Clipboard | Item Path/Name(s)  (Ctrl+P)')
-			elif ScopeText == "#102": sublime.status_message('File | To Clipboard | Item Name(s)   (Ctrl+Shift+P)')
-			elif ScopeText == "#103": sublime.status_message('File | To Clipboard | Item Path(s)   (Ctrl+Shift+Alt+P)')
-			elif ScopeText == "#113": sublime.status_message('File | To Clipboard | Item Base(s)')
-			elif ScopeText == "#112": sublime.status_message('File | To Clipboard | Item Short Path/Name(s)')
-			elif ScopeText == "#114": sublime.status_message('File | To Clipboard | Item UNC Path/Name(s)')
-			elif ScopeText == "#104": sublime.status_message('File | To Clipboard | Name(s), Bytes, Modified[, Version]')
-			elif ScopeText == "#105": sublime.status_message('File | To Clipboard | Name(s), Bytes, Modified[, Version], Path')
-			elif ScopeText == "#116": sublime.status_message('File | To Clipboard | Name(s), Bytes, Modified[, Version], Path, MD5')
-			elif ScopeText == "#106": sublime.status_message('File | To Clipboard | Compact File Info')
-			elif ScopeText == "#107": sublime.status_message('File | To Clipboard | Extended File Info')
-			elif ScopeText == "#108": sublime.status_message('File | To Clipboard | Large Icon')
-			elif ScopeText == "#109": sublime.status_message('File | To Clipboard | Small Icon')
-			elif ScopeText == "#115": sublime.status_message('File | To Clipboard | Image')
-			elif ScopeText == "#110": sublime.status_message('File | To Clipboard | Selected List Row(s)')
-			elif ScopeText == "#111": sublime.status_message('File | To Clipboard | All List Rows')
-			elif ScopeText == "#120": sublime.status_message('File | Rename Special | - submenu -')
-			elif ScopeText == "#121": sublime.status_message('File | Rename Special | Batch Rename...  (Shift+F2)')
-			elif ScopeText == "#122": sublime.status_message('File | Rename Special | RegExp Rename...')
-			elif ScopeText == "#123": sublime.status_message('File | Rename Special | Search and Replace...')
-			elif ScopeText == "#124": sublime.status_message('File | Rename Special | Keep Particular Characters...')
-			elif ScopeText == "#125": sublime.status_message('File | Rename Special | Set Extension...')
-			elif ScopeText == "#147": sublime.status_message('File | Rename Special | Edit Item Names...')
-			elif ScopeText == "#138": sublime.status_message('File | Rename Special | A* A*.aaa')
-			elif ScopeText == "#126": sublime.status_message('File | Rename Special | Aaa Aa.aaa')
-			elif ScopeText == "#127": sublime.status_message('File | Rename Special | aaa aa.aaa')
-			elif ScopeText == "#128": sublime.status_message('File | Rename Special | AAA AA.AAA')
-			elif ScopeText == "#136": sublime.status_message('File | Rename Special | *.aaa')
-			elif ScopeText == "#137": sublime.status_message('File | Rename Special | *.AAA')
-			elif ScopeText == "#129": sublime.status_message('File | Rename Special | Spaces to _')
-			elif ScopeText == "#130": sublime.status_message('File | Rename Special | _ to Spaces')
-			elif ScopeText == "#139": sublime.status_message('File | Rename Special | Remove Diacritics')
-			elif ScopeText == "#131": sublime.status_message('File | Rename Special | Convert to ASCII')
-			elif ScopeText == "#132": sublime.status_message('File | Rename Special | UrlEscape (Space > %20 ...)')
-			elif ScopeText == "#133": sublime.status_message('File | Rename Special | UrlUnescape (%20 > Space ...)')
-			elif ScopeText == "#134": sublime.status_message('File | Rename Special | Unicode to UTF-8')
-			elif ScopeText == "#135": sublime.status_message('File | Rename Special | UTF-8 to Unicode')
-			elif ScopeText == "#140": sublime.status_message('File | Rename Special | Mp3 Special | - submenu -')
-			elif ScopeText == "#141": sublime.status_message('File | Rename Special | Mp3 Special | Filename (Artist - Title.mp3) to ID3 Tag')
-			elif ScopeText == "#142": sublime.status_message('File | Rename Special | Mp3 Special | Filename (Track - Artist - Title.mp3) to ID3 Tag')
-			elif ScopeText == "#143": sublime.status_message('File | Rename Special | Mp3 Special | Filename (Artist - Album - Track - Title.mp3) to ID3 Tag')
-			elif ScopeText == "#158": sublime.status_message('File | Rename Special | Mp3 Special | Filename (Artist - Year - Album - Track - Title.mp3) to ID3 Tag')
-			elif ScopeText == "#144": sublime.status_message('File | Rename Special | Mp3 Special | ID3 Tag to Filename (Artist - Title.mp3)')
-			elif ScopeText == "#145": sublime.status_message('File | Rename Special | Mp3 Special | ID3 Tag to Filename (Track - Artist - Title.mp3)')
-			elif ScopeText == "#146": sublime.status_message('File | Rename Special | Mp3 Special | ID3 Tag to Filename (Artist - Album - Track - Title.mp3)')
-			elif ScopeText == "#159": sublime.status_message('File | Rename Special | Mp3 Special | ID3 Tag to Filename (Artist - Year - Album - Track - Title.mp3)')
-			elif ScopeText == "#148": sublime.status_message('File | Rename Special | Preview All')
-			elif ScopeText == "#150": sublime.status_message('File | Move/Copy/Backup To | - submenu -')
-			elif ScopeText == "#151": sublime.status_message('File | Move/Copy/Backup To | Move To | - submenu -')
-			elif ScopeText == "#152": sublime.status_message('File | Move/Copy/Backup To | Copy To | - submenu -')
-			elif ScopeText == "#153": sublime.status_message('File | Move/Copy/Backup To | Backup To | - submenu -')
-			elif ScopeText == "#160": sublime.status_message('File | Open Selected Item(s)     (Enter)')
-			elif ScopeText == "#176": sublime.status_message('File | Open with...  (Ctrl+Alt+Enter)')
-			elif ScopeText == "#161": sublime.status_message('File | Open with Arguments...')
-			elif ScopeText == "#162": sublime.status_message('File | Open Focused Item     (Ctrl+Enter)')
-			elif ScopeText == "#156": sublime.status_message('File | Open...   (Ctrl+O)')
-			elif ScopeText == "#154": sublime.status_message('File | Duplicate | - submenu -')
-			elif ScopeText == "#163": sublime.status_message('File | Duplicate | Copy Here')
-			elif ScopeText == "#164": sublime.status_message('File | Duplicate | Copy Here with Increment  (Ctrl+D)')
-			elif ScopeText == "#165": sublime.status_message('File | Duplicate | Copy Here with Current Date   (Ctrl+Shift+Alt+D)')
-			elif ScopeText == "#166": sublime.status_message('File | Duplicate | Copy Here with Last Modified Date     (Ctrl+Shift+D)')
-			elif ScopeText == "#167": sublime.status_message('File | Duplicate | Copy Here As...   (Ctrl+S)')
-			elif ScopeText == "#1042": sublime.status_message('File | Duplicate | Copy Here to New Subfolder...     (Ctrl+Shift+C)')
-			elif ScopeText == "#1041": sublime.status_message('File | Duplicate | Move Here to New Subfolder...     (Ctrl+Shift+X)')
-			elif ScopeText == "#169": sublime.status_message('File | Delete    (Del)')
-			elif ScopeText == "#172": sublime.status_message('File | Rename    (F2)')
-			elif ScopeText == "#155": sublime.status_message('File | File Special | - submenu -')
-			elif ScopeText == "#168": sublime.status_message('File | File Special | Create Shortcut(s)')
-			elif ScopeText == "#170": sublime.status_message('File | File Special | Delete (No Recycle Bin)    (Shift+Del)')
-			elif ScopeText == "#171": sublime.status_message('File | File Special | Delete (Skip Locked)   (Ctrl+Del)')
-			elif ScopeText == "#157": sublime.status_message('File | File Special | Delete Long')
-			elif ScopeText == "#179": sublime.status_message('File | File Special | Wipe')
-			elif ScopeText == "#175": sublime.status_message('File | File Special | Swap Names     (Ctrl+Shift+F2)')
-			elif ScopeText == "#1034": sublime.status_message('File | File Special | Set Modified Date to Current')
-			elif ScopeText == "#1073": sublime.status_message('File | File Special | Set Modified Date to Exif')
-			elif ScopeText == "#1074": sublime.status_message('File | File Special | Set Created Date to Exif')
-			elif ScopeText == "#198": sublime.status_message('File | File Special | Display Hash Values')
-			elif ScopeText == "#280": sublime.status_message('File | File Special | Extract Here')
-			elif ScopeText == "#281": sublime.status_message('File | File Special | Add to Zip...')
-			elif ScopeText == "#173": sublime.status_message('File | Properties    (Alt+Enter)')
-			elif ScopeText == "#197": sublime.status_message('File | Metadata  (Shift+Enter)')
-			elif ScopeText == "#174": sublime.status_message('File | Preview   (Ctrl+Q)')
-			elif ScopeText == "#177": sublime.status_message('File | Quick File View   (Ctrl+Shift+Q)')
-			elif ScopeText == "#178": sublime.status_message('File | Floating Preview  (F11)')
-			elif ScopeText == "#182": sublime.status_message('File | Save Settings')
-			elif ScopeText == "#180": sublime.status_message('File | Settings Special | - submenu -')
-			elif ScopeText == "#181": sublime.status_message('File | Settings Special | Load Configuration...')
-			elif ScopeText == "#193": sublime.status_message('File | Settings Special | Save Configuration')
-			elif ScopeText == "#183": sublime.status_message('File | Settings Special | Save Configuration As...')
-			elif ScopeText == "#184": sublime.status_message('File | Settings Special | Save Copy of Configuration As...')
-			elif ScopeText == "#185": sublime.status_message('File | Settings Special | Create Shortcut to this Configuration...')
-			elif ScopeText == "#186": sublime.status_message('File | Settings Special | Save Catalog')
-			elif ScopeText == "#187": sublime.status_message('File | Settings Special | Save User-Defined Commands')
-			elif ScopeText == "#188": sublime.status_message('File | Settings Special | Save Keyboard Shortcuts')
-			elif ScopeText == "#194": sublime.status_message('File | Settings Special | Save Folder View Settings')
-			elif ScopeText == "#195": sublime.status_message('File | Settings Special | Save Tags')
-			elif ScopeText == "#189": sublime.status_message('File | Settings Special | Save Servers')
-			elif ScopeText == "#196": sublime.status_message('File | Settings Special | Backup Application Data Folder...')
-			elif ScopeText == "#190": sublime.status_message('File | Restart without Saving')
-			elif ScopeText == "#191": sublime.status_message('File | Exit without Saving   (Ctrl+Alt+F4)')
-			elif ScopeText == "#192": sublime.status_message('File | Exit  (Alt+F4)')
-			elif ScopeText == "#203": sublime.status_message('Edit | Undo  (Ctrl+Z)')
-			elif ScopeText == "#204": sublime.status_message('Edit | Redo  (Ctrl+Shift+Z)')
-			elif ScopeText == "#205": sublime.status_message('Edit | Action Log...     (Ctrl+Alt+Z)')
-			elif ScopeText == "#223": sublime.status_message('Edit | Recent File Operations...     (Alt+F7)')
-			elif ScopeText == "#200": sublime.status_message('Edit | Cut   (Ctrl+X)')
-			elif ScopeText == "#201": sublime.status_message('Edit | Copy  (Ctrl+C)')
-			elif ScopeText == "#202": sublime.status_message('Edit | Paste     (Ctrl+V)')
-			elif ScopeText == "#210": sublime.status_message('Edit | Paste Special | - submenu -')
-			elif ScopeText == "#211": sublime.status_message('Edit | Paste Special | Paste Here to New Subfolder...    (Ctrl+Shift+V)')
-			elif ScopeText == "#273": sublime.status_message('Edit | Paste Special | Paste Here with Path...')
-			elif ScopeText == "#207": sublime.status_message('Edit | Paste Special | Paste Here As...')
-			elif ScopeText == "#212": sublime.status_message('Edit | Paste Special | Paste (Move)')
-			elif ScopeText == "#213": sublime.status_message('Edit | Paste Special | Paste (Copy)')
-			elif ScopeText == "#272": sublime.status_message('Edit | Paste Special | Paste (Backup)')
-			elif ScopeText == "#218": sublime.status_message('Edit | Paste Special | Paste As Shortcut(s)')
-			elif ScopeText == "#208": sublime.status_message('Edit | Paste Special | Paste As Hard Link(s)')
-			elif ScopeText == "#270": sublime.status_message('Edit | Paste Special | Paste As Symbolic Link(s)')
-			elif ScopeText == "#271": sublime.status_message('Edit | Paste Special | Paste As Junction(s)')
-			elif ScopeText == "#275": sublime.status_message('Edit | Paste Special | Paste Extracted')
-			elif ScopeText == "#274": sublime.status_message('Edit | Paste Special | Paste Zipped')
-			elif ScopeText == "#209": sublime.status_message('Edit | Paste Special | Paste Folder Structure')
-			elif ScopeText == "#219": sublime.status_message('Edit | Paste Special | Paste Text Into New File  (Ctrl+Alt+V)')
-			elif ScopeText == "#206": sublime.status_message('Edit | Paste Special | Paste Image Into New File     (Ctrl+Shift+Alt+V)')
-			elif ScopeText == "#214": sublime.status_message('Edit | Paste Special | Mark Files in Clipboard as Cut')
-			elif ScopeText == "#215": sublime.status_message('Edit | Paste Special | Mark Files in Clipboard as Copied')
-			elif ScopeText == "#216": sublime.status_message('Edit | Paste Special | Edit Files in Clipboard...')
-			elif ScopeText == "#217": sublime.status_message('Edit | Paste Special | Clear Clipboard')
-			elif ScopeText == "#220": sublime.status_message('Edit | Move To...    (Shift+F7)')
-			elif ScopeText == "#221": sublime.status_message('Edit | Copy To...    (Ctrl+F7)')
-			elif ScopeText == "#222": sublime.status_message('Edit | Backup To...  (Ctrl+Shift+F7)')
-			elif ScopeText == "#225": sublime.status_message('Edit | Compare | - submenu -')
-			elif ScopeText == "#227": sublime.status_message('Edit | Compare | Compare Current File with Previous File     (Ctrl+K)')
-			elif ScopeText == "#226": sublime.status_message('Edit | Compare | Compare Current File with File in Clipboard     (Ctrl+Shift+K)')
-			elif ScopeText == "#228": sublime.status_message('Edit | Compare | Compare Current File on Both Panes  (Ctrl+Alt+K)')
-			elif ScopeText == "#230": sublime.status_message('Edit | New | - submenu -')
-			elif ScopeText == "#231": sublime.status_message('Edit | New | New Folder "New Folder"     (Ctrl+N)')
-			elif ScopeText == "#232": sublime.status_message('Edit | New | New Folder "20141209"')
-			elif ScopeText == "#233": sublime.status_message('Edit | New | New Folder "2014-12-09"')
-			elif ScopeText == "#234": sublime.status_message('Edit | New | New Text File "New Text File.txt"   (Ctrl+Shift+N)')
-			elif ScopeText == "#235": sublime.status_message('Edit | New | New Text File "20141209.txt"')
-			elif ScopeText == "#236": sublime.status_message('Edit | New | New Text File "2014-12-09.txt"')
-			elif ScopeText == "#241": sublime.status_message('Edit | New | New Shortcut...')
-			elif ScopeText == "#242": sublime.status_message('Edit | New | New Path...     (Ctrl+Alt+N)')
-			elif ScopeText == "#243": sublime.status_message('Edit | New | New Folders...')
-			elif ScopeText == "#244": sublime.status_message('Edit | New | New Files...')
-			elif ScopeText == "#240": sublime.status_message('Edit | New Items | - submenu -')
-			elif ScopeText == "#265": sublime.status_message('Edit | Select | - submenu -')
-			elif ScopeText == "#250": sublime.status_message('Edit | Select | Select All   (Ctrl+A)')
-			elif ScopeText == "#251": sublime.status_message('Edit | Select | Deselect All     (Ctrl+Shift+A)')
-			elif ScopeText == "#252": sublime.status_message('Edit | Select | Invert Selection     (Ctrl+Shift+I)')
-			elif ScopeText == "#257": sublime.status_message('Edit | Select | Restore Selection')
-			elif ScopeText == "#253": sublime.status_message('Edit | Select | Selection Filter...  (Ctrl+M)')
-			elif ScopeText == "#254": sublime.status_message('Edit | Select | Select By Selected Type(s)   (Ctrl+Alt+M)')
-			elif ScopeText == "#255": sublime.status_message('Edit | Select | Select All Files     (Ctrl+Shift+Alt+M)')
-			elif ScopeText == "#256": sublime.status_message('Edit | Select | Select Items...  (Ctrl+Shift+M)')
-			elif ScopeText == "#258": sublime.status_message('Edit | Select | Selection Stats')
-			elif ScopeText == "#260": sublime.status_message('Edit | Find Files...     (Ctrl+F)')
-			elif ScopeText == "#261": sublime.status_message('Edit | Find Now  (Ctrl+Alt+F)')
-			elif ScopeText == "#262": sublime.status_message('Edit | Repeat Last Search')
-			elif ScopeText == "#264": sublime.status_message('Edit | Search Templates...')
-			elif ScopeText == "#266": sublime.status_message('Edit | Quick Search...   (F3)')
-			elif ScopeText == "#268": sublime.status_message('Edit | Toggle Quick Search   (Ctrl+Shift+F3)')
-			elif ScopeText == "#267": sublime.status_message('Edit | Repeat Last Quick Search  (Shift+F3)')
-			elif ScopeText == "#263": sublime.status_message('Edit | Show All Items In Branch  (Ctrl+F3)')
-			elif ScopeText == "#301": sublime.status_message('View | Views | - submenu -')
-			elif ScopeText == "#302": sublime.status_message('View | Views | Details')
-			elif ScopeText == "#303": sublime.status_message('View | Views | Details with Thumbnails #1 (96x72)')
-			elif ScopeText == "#304": sublime.status_message('View | Views | List')
-			elif ScopeText == "#305": sublime.status_message('View | Views | Small Icons')
-			elif ScopeText == "#309": sublime.status_message('View | Views | Large Icons')
-			elif ScopeText == "#313": sublime.status_message('View | Views | Small Tiles')
-			elif ScopeText == "#314": sublime.status_message('View | Views | Large Tiles')
-			elif ScopeText == "#306": sublime.status_message('View | Views | Thumbnails #1 (96x72)')
-			elif ScopeText == "#307": sublime.status_message('View | Views | Thumbnails #2 (128x96)')
-			elif ScopeText == "#308": sublime.status_message('View | Views | Thumbnails #3 (240x180)')
-			elif ScopeText == "#310": sublime.status_message('View | Views | Configure Thumbnails...')
-			elif ScopeText == "#311": sublime.status_message('View | Views | Branch View')
-			elif ScopeText == "#320": sublime.status_message('View | Sort By | - submenu -')
-			elif ScopeText == "#319": sublime.status_message('View | Sort By | Index')
-			elif ScopeText == "#329": sublime.status_message('View | Sort By | Path')
-			elif ScopeText == "#321": sublime.status_message('View | Sort By | Name')
-			elif ScopeText == "#322": sublime.status_message('View | Sort By | Ext')
-			elif ScopeText == "#323": sublime.status_message('View | Sort By | Size')
-			elif ScopeText == "#324": sublime.status_message('View | Sort By | Type')
-			elif ScopeText == "#325": sublime.status_message('View | Sort By | Created')
-			elif ScopeText == "#326": sublime.status_message('View | Sort By | Modified')
-			elif ScopeText == "#327": sublime.status_message('View | Sort By | Accessed')
-			elif ScopeText == "#328": sublime.status_message('View | Sort By | Attr')
-			elif ScopeText == "#334": sublime.status_message('View | Sort By | Len')
-			elif ScopeText == "#335": sublime.status_message('View | Sort By | Label')
-			elif ScopeText == "#337": sublime.status_message('View | Sort By | Tags')
-			elif ScopeText == "#336": sublime.status_message('View | Sort By | Comment')
-			elif ScopeText == "#330": sublime.status_message('View | Sort By | Unsorted')
-			elif ScopeText == "#331": sublime.status_message('View | Sort By | Random Order    (Ctrl+Alt+R)')
-			elif ScopeText == "#332": sublime.status_message('View | Sort By | Sort Again')
-			elif ScopeText == "#338": sublime.status_message('View | Sort By | Previous Order')
-			elif ScopeText == "#339": sublime.status_message('View | Sort By | Reverse Order')
-			elif ScopeText == "#333": sublime.status_message('View | Sort By | Sort Folders Apart')
-			elif ScopeText == "#312": sublime.status_message('View | Sort By | Show Sort Headers in All Views')
-			elif ScopeText == "#360": sublime.status_message('View | Columns | - submenu -')
-			elif ScopeText == "#361": sublime.status_message('View | Columns | Line Numbers')
-			elif ScopeText == "#384": sublime.status_message('View | Columns | Index')
-			elif ScopeText == "#370": sublime.status_message('View | Columns | Path')
-			elif ScopeText == "#362": sublime.status_message('View | Columns | Name')
-			elif ScopeText == "#363": sublime.status_message('View | Columns | Ext')
-			elif ScopeText == "#364": sublime.status_message('View | Columns | Size')
-			elif ScopeText == "#365": sublime.status_message('View | Columns | Type')
-			elif ScopeText == "#366": sublime.status_message('View | Columns | Created')
-			elif ScopeText == "#367": sublime.status_message('View | Columns | Modified')
-			elif ScopeText == "#368": sublime.status_message('View | Columns | Accessed')
-			elif ScopeText == "#369": sublime.status_message('View | Columns | Attr')
-			elif ScopeText == "#375": sublime.status_message('View | Columns | Len')
-			elif ScopeText == "#379": sublime.status_message('View | Columns | Label')
-			elif ScopeText == "#381": sublime.status_message('View | Columns | Tags')
-			elif ScopeText == "#380": sublime.status_message('View | Columns | Comment')
-			elif ScopeText == "#382": sublime.status_message('View | Columns | Show Columns...')
-			elif ScopeText == "#383": sublime.status_message('View | Columns | New Column')
-			elif ScopeText == "#371": sublime.status_message('View | Columns | Show All Columns')
-			elif ScopeText == "#372": sublime.status_message('View | Columns | Autosize Columns Now    (Ctrl+Numpad Add)')
-			elif ScopeText == "#373": sublime.status_message('View | Columns | Grow Name Column    (Ctrl+Shift+Numpad Add)')
-			elif ScopeText == "#374": sublime.status_message('View | Columns | Shrink Name Column  (Ctrl+Shift+Numpad Subtract)')
-			elif ScopeText == "#377": sublime.status_message('View | Columns | Load Column Layout...')
-			elif ScopeText == "#376": sublime.status_message('View | Columns | Save Column Layout As...')
-			elif ScopeText == "#378": sublime.status_message('View | Columns | Set Line Number Column Width...')
-			elif ScopeText == "#300": sublime.status_message('View | Tab | - submenu -')
-			elif ScopeText == "#340": sublime.status_message('View | Tab | New Tab     (Ctrl+T)')
-			elif ScopeText == "#341": sublime.status_message('View | Tab | Default Tab')
-			elif ScopeText == "#358": sublime.status_message('View | Tab | Iconize')
-			elif ScopeText == "#342": sublime.status_message('View | Tab | Rename Tab...')
-			elif ScopeText == "#344": sublime.status_message('View | Tab | Copy Location Term')
-			elif ScopeText == "#346": sublime.status_message('View | Tab | Relocate Tab...')
-			elif ScopeText == "#345": sublime.status_message('View | Tab | Tab History...')
-			elif ScopeText == "#347": sublime.status_message('View | Tab | Set Home')
-			elif ScopeText == "#348": sublime.status_message('View | Tab | Go Home     (Alt+Home)')
-			elif ScopeText == "#349": sublime.status_message('View | Tab | Lock Home Zone')
-			elif ScopeText == "#350": sublime.status_message('View | Tab | Lock Location   (Ctrl+L)')
-			elif ScopeText == "#354": sublime.status_message('View | Tab | Set Visual Filter...    (Ctrl+J)')
-			elif ScopeText == "#355": sublime.status_message('View | Tab | Toggle Visual Filter    (Ctrl+Shift+J)')
-			elif ScopeText == "#359": sublime.status_message('View | Tab | Filter By Selection(s)  (Shift+Alt+J)')
-			elif ScopeText == "#356": sublime.status_message('View | Tab | Filter By Selected Extension(s)     (Ctrl+Alt+J)')
-			elif ScopeText == "#357": sublime.status_message('View | Tab | Filter Out Selected Extension(s)    (Ctrl+Shift+Alt+J)')
-			elif ScopeText == "#385": sublime.status_message('View | Tab | Type Stats and Filter...')
-			elif ScopeText == "#343": sublime.status_message('View | Tab | Restore Last Closed Tab')
-			elif ScopeText == "#352": sublime.status_message('View | Tab | Close All Other Unlocked Tabs   (Ctrl+Shift+W)')
-			elif ScopeText == "#353": sublime.status_message('View | Tab | Close All Other Tabs')
-			elif ScopeText == "#351": sublime.status_message('View | Tab | Close Tab   (Ctrl+W) >> (Ctrl+W, Ctrl+F4)')
-			elif ScopeText == "#510": sublime.status_message('View | Mini Tree | - submenu -')
-			elif ScopeText == "#489": sublime.status_message('View | Mini Tree | Mini Tree')
-			elif ScopeText == "#511": sublime.status_message('View | Mini Tree | Minimize Tree')
-			elif ScopeText == "#512": sublime.status_message('View | Mini Tree | Load Last Mini Tree')
-			elif ScopeText == "#513": sublime.status_message('View | Mini Tree | Mini Tree From Recent')
-			elif ScopeText == "#515": sublime.status_message('View | Mini Tree | Set as Favorite Mini Tree...')
-			elif ScopeText == "#516": sublime.status_message('View | Mini Tree | Load Favorite Mini Tree')
-			elif ScopeText == "#514": sublime.status_message('View | Mini Tree | Hide Current Folder')
-			elif ScopeText == "#770": sublime.status_message('View | Paper Folders | - submenu -')
-			elif ScopeText == "#771": sublime.status_message('View | Paper Folders | New...')
-			elif ScopeText == "#772": sublime.status_message('View | Paper Folders | Open...')
-			elif ScopeText == "#773": sublime.status_message('View | Paper Folders | Save')
-			elif ScopeText == "#774": sublime.status_message('View | Paper Folders | Save As...')
-			elif ScopeText == "#775": sublime.status_message('View | Paper Folders | Save Copy As...')
-			elif ScopeText == "#776": sublime.status_message('View | Paper Folders | Remove Selected Items')
-			elif ScopeText == "#777": sublime.status_message('View | Paper Folders | Empty Paper Folder')
-			elif ScopeText == "#778": sublime.status_message('View | Paper Folders | Toggle Paper Folder')
-			elif ScopeText == "#470": sublime.status_message('View | Folder View Settings | - submenu -')
-			elif ScopeText == "#471": sublime.status_message('View | Folder View Settings | Enable Folder View Settings')
-			elif ScopeText == "#472": sublime.status_message('View | Folder View Settings | Save Folder View')
-			elif ScopeText == "#478": sublime.status_message('View | Folder View Settings | Restore Folder View')
-			elif ScopeText == "#473": sublime.status_message('View | Folder View Settings | Edit...')
-			elif ScopeText == "#474": sublime.status_message('View | Folder View Settings | Remove')
-			elif ScopeText == "#475": sublime.status_message('View | Folder View Settings | Apply this Folder View Also To...')
-			elif ScopeText == "#476": sublime.status_message('View | Folder View Settings | Define this Folder View as Default')
-			elif ScopeText == "#477": sublime.status_message('View | Folder View Settings | Manage Folder Views...')
-			elif ScopeText == "#1001": sublime.status_message('View | Refresh   (F5)')
-			elif ScopeText == "#480": sublime.status_message('View | Auto-Refresh  (Ctrl+Shift+R)')
-			elif ScopeText == "#481": sublime.status_message('View | Suspend Auto-Refresh  (Ctrl+R)')
-			elif ScopeText == "#488": sublime.status_message('View | Lock Tree')
-			elif ScopeText == "#482": sublime.status_message('View | Refresh Tree  (F4)')
-			elif ScopeText == "#484": sublime.status_message('View | Reset Tree    (Ctrl+Shift+F4)')
-			elif ScopeText == "#483": sublime.status_message('View | Refresh Current Folder    (Shift+F4)')
-			elif ScopeText == "#485": sublime.status_message('View | Refresh List  (Ctrl+F5)')
-			elif ScopeText == "#486": sublime.status_message('View | Reset List    (Ctrl+Shift+F5)')
-			elif ScopeText == "#487": sublime.status_message('View | Calculate Folder Sizes    (Shift+F5)')
-			elif ScopeText == "#490": sublime.status_message('View | Show Items | - submenu -')
-			elif ScopeText == "#491": sublime.status_message('View | Show Items | Show Floppy Drives')
-			elif ScopeText == "#492": sublime.status_message('View | Show Items | Show Hidden Drives')
-			elif ScopeText == "#493": sublime.status_message('View | Show Items | Show Hidden Files and Folders    (Ctrl+Shift+H)')
-			elif ScopeText == "#494": sublime.status_message('View | Show Items | Show System Files and Folders')
-			elif ScopeText == "#495": sublime.status_message('View | Show Items | Show Junctions')
-			elif ScopeText == "#496": sublime.status_message('View | Show Items | Show Folders in List')
-			elif ScopeText == "#500": sublime.status_message('View | Caches | - submenu -')
-			elif ScopeText == "#501": sublime.status_message('View | Caches | Refresh Thumbnails')
-			elif ScopeText == "#506": sublime.status_message('View | Caches | Refresh Selected Thumbnails')
-			elif ScopeText == "#502": sublime.status_message('View | Caches | Refresh Icons')
-			elif ScopeText == "#505": sublime.status_message('View | Caches | Refresh Environment Variables')
-			elif ScopeText == "#504": sublime.status_message('View | Caches | Update New Items Menu')
-			elif ScopeText == "#520": sublime.status_message('Go | Go to Previous Location     (F7)')
-			elif ScopeText == "#535": sublime.status_message('Go | Go to Previous Item in List     (Shift+Alt+F7)')
-			elif ScopeText == "#521": sublime.status_message('Go | Go to Last Target   (Ctrl+Alt+F7)')
-			elif ScopeText == "#522": sublime.status_message('Go | Top')
-			elif ScopeText == "#523": sublime.status_message('Go | Up  (Backspace)')
-			elif ScopeText == "#524": sublime.status_message('Go | Down    (Shift+Backspace)')
-			elif ScopeText == "#525": sublime.status_message('Go | Breadcrumb...   (Ctrl+Backspace)')
-			elif ScopeText == "#526": sublime.status_message('Go | Drives...')
-			elif ScopeText == "#527": sublime.status_message('Go | Back    (Alt+Left)')
-			elif ScopeText == "#528": sublime.status_message('Go | Forward     (Alt+Right)')
-			elif ScopeText == "#529": sublime.status_message('Go | History...')
-			elif ScopeText == "#539": sublime.status_message('Go | Recent Locations...')
-			elif ScopeText == "#530": sublime.status_message('Go | Hotlist...  (Ctrl+H)')
-			elif ScopeText == "#538": sublime.status_message('Go | Tablist...  (Ctrl+Shift+T)')
-			elif ScopeText == "#540": sublime.status_message('Go | Aliases...')
-			elif ScopeText == "#531": sublime.status_message('Go | Go to...    (Ctrl+G)')
-			elif ScopeText == "#532": sublime.status_message('Go | Go to from Here...  (Ctrl+Shift+G)')
-			elif ScopeText == "#533": sublime.status_message('Go | Go to Line...   (Ctrl+Shift+L)')
-			elif ScopeText == "#534": sublime.status_message('Go | Go to Application Folder    (Ctrl+Shift+Alt+G)')
-			elif ScopeText == "#536": sublime.status_message('Go | Go to Application Data Folder')
-			elif ScopeText == "#550": sublime.status_message('Favorites | Favorite Folders | - submenu -')
-			elif ScopeText == "#551": sublime.status_message('Favorites | Special System Folders | - submenu -')
-			elif ScopeText == "#552": sublime.status_message('Favorites | Special System Folders | Computer')
-			elif ScopeText == "#590": sublime.status_message('Favorites | Special System Folders | Desktop (Virtual)')
-			elif ScopeText == "#591": sublime.status_message('Favorites | Special System Folders | My Documents (Virtual)')
-			elif ScopeText == "#594": sublime.status_message('Favorites | Special System Folders | nnguyen11 (Virtual)')
-			elif ScopeText == "#592": sublime.status_message('Favorites | Special System Folders | Network (Virtual)')
-			elif ScopeText == "#593": sublime.status_message('Favorites | Special System Folders | Recycle Bin (Virtual)')
-			elif ScopeText == "#553": sublime.status_message('Favorites | Special System Folders | Desktop')
-			elif ScopeText == "#554": sublime.status_message('Favorites | Special System Folders | My Documents')
-			elif ScopeText == "#595": sublime.status_message('Favorites | Special System Folders | nnguyen11')
-			elif ScopeText == "#555": sublime.status_message('Favorites | Special System Folders | Favorites')
-			elif ScopeText == "#556": sublime.status_message('Favorites | Special System Folders | Start Menu')
-			elif ScopeText == "#573": sublime.status_message('Favorites | Special System Folders | Program Files')
-			elif ScopeText == "#557": sublime.status_message('Favorites | Special System Folders | Windows Folder')
-			elif ScopeText == "#558": sublime.status_message('Favorites | Special System Folders | System Folder')
-			elif ScopeText == "#559": sublime.status_message('Favorites | Special System Folders | Temp Folder')
-			elif ScopeText == "#571": sublime.status_message('Favorites | Special System Folders | Temporary Internet Files')
-			elif ScopeText == "#572": sublime.status_message('Favorites | Special System Folders | Network Shortcuts')
-			elif ScopeText == "#560": sublime.status_message('Favorites | Special System Folders | Desktop (All Users)')
-			elif ScopeText == "#561": sublime.status_message('Favorites | Special System Folders | My Documents (All Users)')
-			elif ScopeText == "#562": sublime.status_message('Favorites | Special System Folders | Favorites (All Users)')
-			elif ScopeText == "#563": sublime.status_message('Favorites | Special System Folders | Start Menu (All Users)')
-			elif ScopeText == "#564": sublime.status_message('Favorites | Favorite Files | - submenu -')
-			elif ScopeText == "#565": sublime.status_message('Favorites | Favorite Files | Toggle Favorite File')
-			elif ScopeText == "#566": sublime.status_message('Favorites | Toggle Favorite Folder   (Ctrl+B)')
-			elif ScopeText == "#567": sublime.status_message('Favorites | Toggle Highlighted Folder    (Ctrl+Shift+B)')
-			elif ScopeText == "#568": sublime.status_message('Favorites | Toggle Boxed Branch  (Ctrl+Alt+B)')
-			elif ScopeText == "#569": sublime.status_message('Favorites | Set Highlight Color...')
-			elif ScopeText == "#570": sublime.status_message('Favorites | Set Box Color...')
-			elif ScopeText == "#860": sublime.status_message('Favorites | Labels | - submenu -')
-			elif ScopeText == "#861": sublime.status_message('Favorites | Labels |  None')
-			elif ScopeText == "#862": sublime.status_message('Favorites | Labels |  Red')
-			elif ScopeText == "#863": sublime.status_message('Favorites | Labels |  Orange')
-			elif ScopeText == "#864": sublime.status_message('Favorites | Labels |  Yellow')
-			elif ScopeText == "#865": sublime.status_message('Favorites | Labels |  Green')
-			elif ScopeText == "#866": sublime.status_message('Favorites | Labels |  Blue')
-			elif ScopeText == "#867": sublime.status_message('Favorites | Labels |  Purple')
-			elif ScopeText == "#868": sublime.status_message('Favorites | Labels |  Grey')
-			elif ScopeText == "#869": sublime.status_message('Favorites | Labels | [Label #8]')
-			elif ScopeText == "#870": sublime.status_message('Favorites | Labels | [Label #9]')
-			elif ScopeText == "#871": sublime.status_message('Favorites | Labels | [Label #10]')
-			elif ScopeText == "#872": sublime.status_message('Favorites | Labels | [Label #11]')
-			elif ScopeText == "#873": sublime.status_message('Favorites | Labels | [Label #12]')
-			elif ScopeText == "#874": sublime.status_message('Favorites | Labels | [Label #13]')
-			elif ScopeText == "#875": sublime.status_message('Favorites | Labels | [Label #14]')
-			elif ScopeText == "#876": sublime.status_message('Favorites | Labels | [Label #15]')
-			elif ScopeText == "#879": sublime.status_message('Favorites | Apply Last Label')
-			elif ScopeText == "#881": sublime.status_message('Favorites | Add Tags...')
-			elif ScopeText == "#882": sublime.status_message('Favorites | Add Tags by List...')
-			elif ScopeText == "#883": sublime.status_message('Favorites | Add Last Tags')
-			elif ScopeText == "#884": sublime.status_message('Favorites | Edit Tags...')
-			elif ScopeText == "#888": sublime.status_message('Favorites | Edit Tags by List...')
-			elif ScopeText == "#885": sublime.status_message('Favorites | Remove Tags by List...')
-			elif ScopeText == "#886": sublime.status_message('Favorites | Remove All Tags')
-			elif ScopeText == "#880": sublime.status_message('Favorites | Comment...')
-			elif ScopeText == "#887": sublime.status_message('Favorites | Reload Tags Database')
-			elif ScopeText == "#656": sublime.status_message('User | Manage Commands...    (Ctrl+Alt+F9)')
-			elif ScopeText == "#1": sublime.status_message('User | Go To | - submenu -')
-			elif ScopeText == "#2": sublime.status_message('User | Open | - submenu -')
-			elif ScopeText == "#3": sublime.status_message('User | Open With | - submenu -')
-			elif ScopeText == "#4": sublime.status_message('User | Move To | - submenu -')
-			elif ScopeText == "#5": sublime.status_message('User | Copy To | - submenu -')
-			elif ScopeText == "#6": sublime.status_message('User | Backup To | - submenu -')
-			elif ScopeText == "#8": sublime.status_message('User | New | - submenu -')
-			elif ScopeText == "#7": sublime.status_message('User | Rename | - submenu -')
-			elif ScopeText == "#9": sublime.status_message('User | Run Script | - submenu -')
-			elif ScopeText == "#10": sublime.status_message('User | Load Script File | - submenu -')
-			elif ScopeText == "#754": sublime.status_message('Scripting | Run Script...')
-			elif ScopeText == "#755": sublime.status_message('Scripting | Run Script Again')
-			elif ScopeText == "#750": sublime.status_message('Scripting | Step Mode    (Ctrl+Alt+S)')
-			elif ScopeText == "#752": sublime.status_message('Scripting | Try Script...')
-			elif ScopeText == "#756": sublime.status_message('Scripting | Permanent Variables')
-			elif ScopeText == "#751": sublime.status_message('Scripting | Load Selected Script File')
-			elif ScopeText == "#753": sublime.status_message('Scripting | Load Script File...')
-			elif ScopeText == "#757": sublime.status_message('Scripting | Go to Scripts Folder')
-			elif ScopeText == "#600": sublime.status_message('Tools | Configuration...     (F9)')
-			elif ScopeText == "#601": sublime.status_message('Tools | Open Configuration File...')
-			elif ScopeText == "#602": sublime.status_message('Tools | Customize Keyboard Shortcuts...  (Shift+F9)')
-			elif ScopeText == "#603": sublime.status_message('Tools | Customize Toolbar...     (Ctrl+Shift+F9)')
-			elif ScopeText == "#604": sublime.status_message('Tools | Customize File Associations...')
-			elif ScopeText == "#605": sublime.status_message('Tools | Customize File Icons...  (Ctrl+I)')
-			elif ScopeText == "#390": sublime.status_message('Tools | Customize Tree | - submenu -')
-			elif ScopeText == "#391": sublime.status_message('Tools | Customize Tree | Show Icons')
-			elif ScopeText == "#392": sublime.status_message('Tools | Customize Tree | Show Expansion Icons')
-			elif ScopeText == "#393": sublime.status_message('Tools | Customize Tree | Show Lines')
-			elif ScopeText == "#394": sublime.status_message('Tools | Customize Tree | Mark Favorites (Icon)')
-			elif ScopeText == "#395": sublime.status_message('Tools | Customize Tree | Mark Favorites (Bold)')
-			elif ScopeText == "#396": sublime.status_message('Tools | Customize Tree | Narrow Tree')
-			elif ScopeText == "#397": sublime.status_message('Tools | Customize Tree | Rename On Slow Double-Click')
-			elif ScopeText == "#398": sublime.status_message('Tools | Customize Tree | Apply Highlighting')
-			elif ScopeText == "#399": sublime.status_message('Tools | Customize Tree | Full Row Select')
-			elif ScopeText == "#419": sublime.status_message('Tools | Customize Tree | Tree Path Tracing')
-			elif ScopeText == "#400": sublime.status_message('Tools | Customize List | - submenu -')
-			elif ScopeText == "#401": sublime.status_message('Tools | Customize List | Show Icons')
-			elif ScopeText == "#402": sublime.status_message('Tools | Customize List | Column Drag')
-			elif ScopeText == "#403": sublime.status_message('Tools | Customize List | Multiple Select')
-			elif ScopeText == "#404": sublime.status_message('Tools | Customize List | Full Row Select')
-			elif ScopeText == "#405": sublime.status_message('Tools | Customize List | Highlight Sorted Column')
-			elif ScopeText == "#406": sublime.status_message('Tools | Customize List | Show Line Numbers')
-			elif ScopeText == "#407": sublime.status_message('Tools | Customize List | Autosize Columns')
-			elif ScopeText == "#408": sublime.status_message('Tools | Customize List | Show Grid')
-			elif ScopeText == "#409": sublime.status_message('Tools | Customize List | Highlight Focused Item')
-			elif ScopeText == "#410": sublime.status_message('Tools | Customize List | Highlight Selected Rows')
-			elif ScopeText == "#411": sublime.status_message('Tools | Customize List | Rename On Slow Double-Click')
-			elif ScopeText == "#412": sublime.status_message('Tools | Customize List | Hide Extensions')
-			elif ScopeText == "#413": sublime.status_message('Tools | Customize List | Sticky Selection')
-			elif ScopeText == "#414": sublime.status_message('Tools | Customize List | Manual Sorting')
-			elif ScopeText == "#415": sublime.status_message('Tools | Customize List | Checkbox Selection')
-			elif ScopeText == "#416": sublime.status_message('Tools | Customize List | Ignore Articles When Sorting')
-			elif ScopeText == "#420": sublime.status_message('Tools | Customize List | Size Column Format | - submenu -')
-			elif ScopeText == "#431": sublime.status_message('Tools | Customize List | Size Column Format | Show Folder Sizes')
-			elif ScopeText == "#421": sublime.status_message('Tools | Customize List | Size Column Format | Show Space Used')
-			elif ScopeText == "#422": sublime.status_message('Tools | Customize List | Size Column Format | Raw Bytes Count')
-			elif ScopeText == "#423": sublime.status_message('Tools | Customize List | Size Column Format | Bytes')
-			elif ScopeText == "#424": sublime.status_message('Tools | Customize List | Size Column Format | KB (Rounded Up)')
-			elif ScopeText == "#425": sublime.status_message('Tools | Customize List | Size Column Format | KB')
-			elif ScopeText == "#426": sublime.status_message('Tools | Customize List | Size Column Format | MB')
-			elif ScopeText == "#427": sublime.status_message('Tools | Customize List | Size Column Format | GB')
-			elif ScopeText == "#432": sublime.status_message('Tools | Customize List | Size Column Format | TB')
-			elif ScopeText == "#433": sublime.status_message('Tools | Customize List | Size Column Format | PB')
-			elif ScopeText == "#428": sublime.status_message('Tools | Customize List | Size Column Format | Flexible')
-			elif ScopeText == "#429": sublime.status_message('Tools | Customize List | Size Column Format | Flexible (Rounded Up)')
-			elif ScopeText == "#430": sublime.status_message('Tools | Customize List | Size Column Format | Clusters')
-			elif ScopeText == "#440": sublime.status_message('Tools | Customize List | Date Column Format | - submenu -')
-			elif ScopeText == "#441": sublime.status_message('Tools | Customize List | Date Column Format | Show Age   (Ctrl+Shift+E)')
-			elif ScopeText == "#453": sublime.status_message('Tools | Customize List | Date Column Format | Show Weekday')
-			elif ScopeText == "#455": sublime.status_message('Tools | Customize List | Date Column Format | Show Milliseconds')
-			elif ScopeText == "#454": sublime.status_message('Tools | Customize List | Date Column Format | Show Times in UTC')
-			elif ScopeText == "#442": sublime.status_message('Tools | Customize List | Date Column Format | 12/9/2014 (System Short Date)')
-			elif ScopeText == "#443": sublime.status_message('Tools | Customize List | Date Column Format | Tuesday, December 09, 2014 (System Long Date)')
-			elif ScopeText == "#444": sublime.status_message('Tools | Customize List | Date Column Format | 09/12/14 (dd/mm/yy)')
-			elif ScopeText == "#445": sublime.status_message('Tools | Customize List | Date Column Format | 09/12/2014 (dd/mm/yyyy)')
-			elif ScopeText == "#446": sublime.status_message('Tools | Customize List | Date Column Format | 12/09/14 (mm/dd/yy)')
-			elif ScopeText == "#447": sublime.status_message('Tools | Customize List | Date Column Format | 12/09/2014 (mm/dd/yyyy)')
-			elif ScopeText == "#448": sublime.status_message('Tools | Customize List | Date Column Format | 09-Dec-14 (dd-mmm-yy)')
-			elif ScopeText == "#449": sublime.status_message('Tools | Customize List | Date Column Format | 09-Dec-2014 (dd-mmm-yyyy)')
-			elif ScopeText == "#450": sublime.status_message('Tools | Customize List | Date Column Format | 2014-12-09 (ISO 8601)')
-			elif ScopeText == "#451": sublime.status_message('Tools | Customize List | Date Column Format | 2014-W50-2 (ISO Week)')
-			elif ScopeText == "#452": sublime.status_message('Tools | Customize List | Date Column Format | Sagittarius (Zodiac)')
-			elif ScopeText == "#460": sublime.status_message('Tools | Customize List | Date Column Format | 5:51:45 PM (System Time)')
-			elif ScopeText == "#461": sublime.status_message('Tools | Customize List | Date Column Format | 17:51 (hh:nn)')
-			elif ScopeText == "#462": sublime.status_message('Tools | Customize List | Date Column Format | 05:51 pm (hh:nn am/pm)')
-			elif ScopeText == "#463": sublime.status_message('Tools | Customize List | Date Column Format | 05:51 PM (hh:nn AM/PM)')
-			elif ScopeText == "#464": sublime.status_message('Tools | Customize List | Date Column Format | 17:51:45 (ISO 8601)')
-			elif ScopeText == "#465": sublime.status_message('Tools | Customize List | Date Column Format | No Time')
-			elif ScopeText == "#610": sublime.status_message('Tools | List Management | - submenu -')
-			elif ScopeText == "#611": sublime.status_message('Tools | List Management | Address Bar & Go to...')
-			elif ScopeText == "#614": sublime.status_message('Tools | List Management | Portable File Associations...')
-			elif ScopeText == "#653": sublime.status_message('Tools | List Management | Portable File Icons...')
-			elif ScopeText == "#618": sublime.status_message('Tools | List Management | History...')
-			elif ScopeText == "#630": sublime.status_message('Tools | List Management | Mini Tree...')
-			elif ScopeText == "#619": sublime.status_message('Tools | List Management | Move/Copy/Backup To...')
-			elif ScopeText == "#631": sublime.status_message('Tools | List Management | Recent Locations...')
-			elif ScopeText == "#632": sublime.status_message('Tools | List Management | Recently Opened Files...')
-			elif ScopeText == "#634": sublime.status_message('Tools | List Management | Recent Catalogs...')
-			elif ScopeText == "#636": sublime.status_message('Tools | List Management | Recently Included Catalogs...')
-			elif ScopeText == "#650": sublime.status_message('Tools | List Management | Recent Tabsets Pane 1...')
-			elif ScopeText == "#651": sublime.status_message('Tools | List Management | Recent Tabsets Pane 2...')
-			elif ScopeText == "#612": sublime.status_message('Tools | List Management | Favorite Folders...')
-			elif ScopeText == "#613": sublime.status_message('Tools | List Management | Favorite Files...')
-			elif ScopeText == "#627": sublime.status_message('Tools | List Management | Highlighted Folders...')
-			elif ScopeText == "#628": sublime.status_message('Tools | List Management | Boxed Branches...')
-			elif ScopeText == "#629": sublime.status_message('Tools | List Management | Color Filters...')
-			elif ScopeText == "#654": sublime.status_message('Tools | List Management | Instant Color Filters...')
-			elif ScopeText == "#635": sublime.status_message('Tools | List Management | Tag List...')
-			elif ScopeText == "#637": sublime.status_message('Tools | List Management | Tagged Items...')
-			elif ScopeText == "#623": sublime.status_message('Tools | List Management | Selection Filters...')
-			elif ScopeText == "#624": sublime.status_message('Tools | List Management | Visual Filters...')
-			elif ScopeText == "#652": sublime.status_message('Tools | List Management | Power Filters...')
-			elif ScopeText == "#633": sublime.status_message('Tools | List Management | Aliases...')
-			elif ScopeText == "#615": sublime.status_message('Tools | List Management | Find Files: Name...')
-			elif ScopeText == "#616": sublime.status_message('Tools | List Management | Find Files: Location...')
-			elif ScopeText == "#617": sublime.status_message('Tools | List Management | Find Files: Excluded Items...')
-			elif ScopeText == "#638": sublime.status_message('Tools | List Management | Quick Search...')
-			elif ScopeText == "#622": sublime.status_message('Tools | List Management | Rename Special: Batch Rename...')
-			elif ScopeText == "#621": sublime.status_message('Tools | List Management | Rename Special: RegExp Rename...')
-			elif ScopeText == "#620": sublime.status_message('Tools | List Management | Rename Special: Search and Replace...')
-			elif ScopeText == "#625": sublime.status_message('Tools | List Management | Files in Clipboard...')
-			elif ScopeText == "#626": sublime.status_message('Tools | List Management | Servers in Network Folder...')
-			elif ScopeText == "#639": sublime.status_message('Tools | Tools Special | - submenu -')
-			elif ScopeText == "#640": sublime.status_message('Tools | Tools Special | Control Panel...')
-			elif ScopeText == "#641": sublime.status_message('Tools | Tools Special | Open Recycle Bin...')
-			elif ScopeText == "#642": sublime.status_message('Tools | Tools Special | Empty Recycle Bin...')
-			elif ScopeText == "#643": sublime.status_message('Tools | Tools Special | Recycle Bin Stats...')
-			elif ScopeText == "#644": sublime.status_message('Tools | Tools Special | Map Network Drive...')
-			elif ScopeText == "#645": sublime.status_message('Tools | Tools Special | Disconnect Mapped Network Drive...')
-			elif ScopeText == "#646": sublime.status_message('Tools | Tools Special | Reconnect All Mapped Network Drives')
-			elif ScopeText == "#648": sublime.status_message('Tools | Tools Special | Browse for Network Server...')
-			elif ScopeText == "#800": sublime.status_message('Panes | Dual Pane    (F10)')
-			elif ScopeText == "#801": sublime.status_message('Panes | Horizontal Panes     (Ctrl+F10)')
-			elif ScopeText == "#802": sublime.status_message('Panes | Toggle Active Pane   (Ctrl+Alt+F10)')
-			elif ScopeText == "#803": sublime.status_message('Panes | Move to Other Pane   (Shift+F6)')
-			elif ScopeText == "#804": sublime.status_message('Panes | Copy to Other Pane   (Ctrl+F6)')
-			elif ScopeText == "#807": sublime.status_message('Panes | Backup to Other Pane     (Ctrl+Shift+F6)')
-			elif ScopeText == "#805": sublime.status_message('Panes | Move Tab to Other Pane')
-			elif ScopeText == "#806": sublime.status_message('Panes | Copy Tab to Other Pane')
-			elif ScopeText == "#1070": sublime.status_message('Panes | Go to Other Location')
-			elif ScopeText == "#810": sublime.status_message('Panes | Go Here in Other Pane')
-			elif ScopeText == "#811": sublime.status_message('Panes | Swap Locations')
-			elif ScopeText == "#814": sublime.status_message('Panes | Sync Browse')
-			elif ScopeText == "#813": sublime.status_message('Panes | Sync Scroll')
-			elif ScopeText == "#812": sublime.status_message('Panes | Sync Select...')
-			elif ScopeText == "#690": sublime.status_message('Panes | Tabs | - submenu -')
-			elif ScopeText == "#850": sublime.status_message('Tabsets | New...')
-			elif ScopeText == "#851": sublime.status_message('Tabsets | Open...')
-			elif ScopeText == "#856": sublime.status_message('Tabsets | Open As...')
-			elif ScopeText == "#857": sublime.status_message('Tabsets | Revert to Saved')
-			elif ScopeText == "#852": sublime.status_message('Tabsets | Save')
-			elif ScopeText == "#853": sublime.status_message('Tabsets | Save As...')
-			elif ScopeText == "#854": sublime.status_message('Tabsets | Save Copy As...')
-			elif ScopeText == "#855": sublime.status_message('Tabsets | Rename...')
-			elif ScopeText == "#858": sublime.status_message('Tabsets | Go to Tabset Folder')
-			elif ScopeText == "#660": sublime.status_message('Window | Show Address Bar    (Ctrl+Shift+F12)')
-			elif ScopeText == "#661": sublime.status_message('Window | Show Toolbar    (Ctrl+F12)')
-			elif ScopeText == "#662": sublime.status_message('Window | Show Tab Bar')
-			elif ScopeText == "#671": sublime.status_message('Window | Show Breadcrumb Bar')
-			elif ScopeText == "#670": sublime.status_message('Window | Show Status Bar')
-			elif ScopeText == "#669": sublime.status_message('Window | Show Status Bar Buttons')
-			elif ScopeText == "#663": sublime.status_message('Window | Show Navigation Panels  (F8)')
-			elif ScopeText == "#668": sublime.status_message('Window | Show Tree   (Shift+F8)')
-			elif ScopeText == "#664": sublime.status_message('Window | Show Catalog    (Ctrl+F8)')
-			elif ScopeText == "#665": sublime.status_message('Window | Show Info Panel     (F12)')
-			elif ScopeText == "#680": sublime.status_message('Window | Arrangement | - submenu -')
-			elif ScopeText == "#681": sublime.status_message('Window | Arrangement | Address Bar and Toolbar Stacked')
-			elif ScopeText == "#682": sublime.status_message('Window | Arrangement | Toolbar First')
-			elif ScopeText == "#687": sublime.status_message('Window | Arrangement | Tree and Catalog Stacked')
-			elif ScopeText == "#686": sublime.status_message('Window | Arrangement | Catalog First')
-			elif ScopeText == "#691": sublime.status_message('Window | Arrangement | List Right')
-			elif ScopeText == "#692": sublime.status_message('Window | Arrangement | List Centered')
-			elif ScopeText == "#693": sublime.status_message('Window | Arrangement | List Left')
-			elif ScopeText == "#683": sublime.status_message('Window | Arrangement | Wide Tabs')
-			elif ScopeText == "#685": sublime.status_message('Window | Arrangement | Wide Info Panel')
-			elif ScopeText == "#672": sublime.status_message('Window | Load Layout...')
-			elif ScopeText == "#673": sublime.status_message('Window | Save Layout As...')
-			elif ScopeText == "#700": sublime.status_message('Help | Contents and Index    (F1)')
-			elif ScopeText == "#701": sublime.status_message('Help | Help on Keyboard Shortcuts')
-			elif ScopeText == "#704": sublime.status_message('Help | Help on Scripting Commands')
-			elif ScopeText == "#702": sublime.status_message('Help | Keyboard Shortcuts on Menu')
-			elif ScopeText == "#705": sublime.status_message('Help | List All Commands...')
-			elif ScopeText == "#710": sublime.status_message('Help | Online Support | - submenu -')
-			elif ScopeText == "#711": sublime.status_message('Help | Online Support | Check for Updates')
-			elif ScopeText == "#712": sublime.status_message('Help | Online Support | Whats New?')
-			elif ScopeText == "#713": sublime.status_message('Help | Online Support | Homepage')
-			elif ScopeText == "#714": sublime.status_message('Help | Online Support | Support')
-			elif ScopeText == "#715": sublime.status_message('Help | Online Support | User Forum')
-			elif ScopeText == "#719": sublime.status_message('Help | Online Support | Buy Now')
-			elif ScopeText == "#718": sublime.status_message('Help | Online Support | Upgrade License')
-			elif ScopeText == "#725": sublime.status_message('Help | Unlock Trial Version...')
-			elif ScopeText == "#728": sublime.status_message('Help | Environment Variables')
-			elif ScopeText == "#727": sublime.status_message('Help | Various Information')
-			elif ScopeText == "#731": sublime.status_message('Help | Select Language...')
-			elif ScopeText == "#729": sublime.status_message('Help | Select Local Language File...')
-			elif ScopeText == "#730": sublime.status_message('Help | Back to English')
-			elif ScopeText == "#732": sublime.status_message('Help | Interface Translation Tool')
-			elif ScopeText == "#726": sublime.status_message('Help | About XYplorer')
-			elif ScopeText == "#1000": sublime.status_message('Miscellaneous | General Functions | Stop     (Esc)')
-			elif ScopeText == "#1005": sublime.status_message('Miscellaneous | General Functions | Open Command Prompt Here     (Ctrl+Alt+P)')
-			elif ScopeText == "#1061": sublime.status_message('Miscellaneous | General Functions | Toggle Main Menu')
-			elif ScopeText == "#1002": sublime.status_message('Miscellaneous | File Operations | Delete (Skip Locked, No Recycle)   (Ctrl+Shift+Del)')
-			elif ScopeText == "#1054": sublime.status_message('Miscellaneous | File Operations | Nuke')
-			elif ScopeText == "#1055": sublime.status_message('Miscellaneous | File Operations | Delete (Recycle, No Confirmation)')
-			elif ScopeText == "#1056": sublime.status_message('Miscellaneous | File Operations | Move Up')
-			elif ScopeText == "#1053": sublime.status_message('Miscellaneous | File Operations | Open Selected Item(s) with OS Default  (Ctrl+Shift+Enter)')
-			elif ScopeText == "#1057": sublime.status_message('Miscellaneous | File Operations | Open Selected Item(s) by Shell')
-			elif ScopeText == "#1004": sublime.status_message('Miscellaneous | File Operations | Open in Browser    (Ctrl+F11)')
-			elif ScopeText == "#1003": sublime.status_message('Miscellaneous | Preview | Full Screen Preview    (Shift+F11)')
-			elif ScopeText == "#1072": sublime.status_message('Miscellaneous | Preview | Close Preview')
-			elif ScopeText == "#1031": sublime.status_message('Miscellaneous | Preview | Snapshot Video Preview     (Ctrl+Alt+F11)')
-			elif ScopeText == "#1006": sublime.status_message('Miscellaneous | Go To | Go to Focused Item   (Ctrl+Alt+Left)')
-			elif ScopeText == "#1007": sublime.status_message('Miscellaneous | Go To | Go to Focused Item in New Tab')
-			elif ScopeText == "#1008": sublime.status_message('Miscellaneous | Go To | Open Containing Folder in New Background Tab')
-			elif ScopeText == "#1043": sublime.status_message('Miscellaneous | Go To | Open Folder in New Tab')
-			elif ScopeText == "#1062": sublime.status_message('Miscellaneous | Go To | Open Folder in Other Pane')
-			elif ScopeText == "#1063": sublime.status_message('Miscellaneous | Go To | Open Folder in Other Pane in New Tab')
-			elif ScopeText == "#1046": sublime.status_message('Miscellaneous | Go To | Go to Shortcut Target')
-			elif ScopeText == "#1047": sublime.status_message('Miscellaneous | Tree | Create New Subfolder Here')
-			elif ScopeText == "#1009": sublime.status_message('Miscellaneous | Tree | Fully Collapse Drive  (Ctrl+Numpad Divide)')
-			elif ScopeText == "#1010": sublime.status_message('Miscellaneous | Tree | Fully Collapse    (Numpad Divide)')
-			elif ScopeText == "#1011": sublime.status_message('Miscellaneous | Tree | Fully Expand  (Numpad Multiply)')
-			elif ScopeText == "#1040": sublime.status_message('Miscellaneous | Tree | Optimize Tree     (Shift+Numpad Divide)')
-			elif ScopeText == "#1071": sublime.status_message('Miscellaneous | List | Copy List Settings from Other Pane')
-			elif ScopeText == "#1020": sublime.status_message('Miscellaneous | Select Info Panel Tab | Properties   (Ctrl+1)')
-			elif ScopeText == "#1021": sublime.status_message('Miscellaneous | Select Info Panel Tab | Version  (Ctrl+2)')
-			elif ScopeText == "#1022": sublime.status_message('Miscellaneous | Select Info Panel Tab | Meta     (Ctrl+3)')
-			elif ScopeText == "#1023": sublime.status_message('Miscellaneous | Select Info Panel Tab | Preview  (Ctrl+4)')
-			elif ScopeText == "#1024": sublime.status_message('Miscellaneous | Select Info Panel Tab | Raw View     (Ctrl+5)')
-			elif ScopeText == "#1025": sublime.status_message('Miscellaneous | Select Info Panel Tab | Tags     (Ctrl+6)')
-			elif ScopeText == "#1058": sublime.status_message('Miscellaneous | Select Info Panel Tab | Find Files   (Ctrl+7)')
-			elif ScopeText == "#1059": sublime.status_message('Miscellaneous | Select Info Panel Tab | Report   (Ctrl+8)')
-			elif ScopeText == "#1027": sublime.status_message('Miscellaneous | Window State | Minimize Window')
-			elif ScopeText == "#1028": sublime.status_message('Miscellaneous | Window State | Maximize Window')
-			elif ScopeText == "#1029": sublime.status_message('Miscellaneous | Window State | Restore Window')
-			elif ScopeText == "#1032": sublime.status_message('Miscellaneous | Window State | Center Window')
-			elif ScopeText == "#1013": sublime.status_message('Miscellaneous | Focus Functions | Cycle Focus    (F6)')
-			elif ScopeText == "#1014": sublime.status_message('Miscellaneous | Focus Functions | Focus Address Bar  (Ctrl+Alt+A) >> (Alt+D, Ctrl+Alt+A)')
-			elif ScopeText == "#1015": sublime.status_message('Miscellaneous | Focus Functions | Focus Catalog  (Ctrl+Alt+C)')
-			elif ScopeText == "#1016": sublime.status_message('Miscellaneous | Focus Functions | Focus List     (Ctrl+Alt+L)')
-			elif ScopeText == "#1017": sublime.status_message('Miscellaneous | Focus Functions | Focus Tree     (Ctrl+Alt+T)')
-			elif ScopeText == "#1012": sublime.status_message('Miscellaneous | Focus Functions | Move Focused Item Into View    (Shift+Alt+F6)')
-			elif ScopeText == "#1033": sublime.status_message('Miscellaneous | Focus Functions | Switch Focus between Files and Folders')
-			elif ScopeText == "#1048": sublime.status_message('Miscellaneous | Focus Functions | Focus First Selected Item')
-			elif ScopeText == "#1049": sublime.status_message('Miscellaneous | Focus Functions | View First Selected Item')
-			elif ScopeText == "#1075": sublime.status_message('Miscellaneous | Focus Functions | Next Type Ahead Match')
-			elif ScopeText == "#1076": sublime.status_message('Miscellaneous | Focus Functions | Previous Type Ahead Match')
-			elif ScopeText == "#1060": sublime.status_message('Miscellaneous | Tab Functions | Open Previous Tab')
-			elif ScopeText == "#1019": sublime.status_message('Miscellaneous | Tab Functions | Cycle Tabs Backward  (Ctrl+Shift+Tab)')
-			elif ScopeText == "#1018": sublime.status_message('Miscellaneous | Tab Functions | Cycle Tabs Forward   (Ctrl+Tab)')
-			elif ScopeText == "#1039": sublime.status_message('Miscellaneous | Tab Functions | Cycle Tabs Backward, Delay Browsing  (Ctrl+PageUp)')
-			elif ScopeText == "#1038": sublime.status_message('Miscellaneous | Tab Functions | Cycle Tabs Forward, Delay Browsing   (Ctrl+PageDown)')
-			elif ScopeText == "#1044": sublime.status_message('Miscellaneous | Tab Functions | Move Tab Left')
-			elif ScopeText == "#1045": sublime.status_message('Miscellaneous | Tab Functions | Move Tab Right')
-			elif ScopeText == "#1026": sublime.status_message('Miscellaneous | Find Files | Open Find Files and Reset   (Ctrl+Shift+F)')
-			elif ScopeText == "#1030": sublime.status_message('Miscellaneous | Find Files | Search All Tabs')
-			elif ScopeText == "#1035": sublime.status_message('Miscellaneous | Timestamp | Set Created Date to Current')
-			elif ScopeText == "#1036": sublime.status_message('Miscellaneous | Timestamp | Set Accessed Date to Current')
-			elif ScopeText == "#1037": sublime.status_message('Miscellaneous | Timestamp | Set Modified Date to Created Date')
-			elif ScopeText == "#1077": sublime.status_message('Miscellaneous | Various | Toggle Instant Color Filter')
-			elif ScopeText == "#666": sublime.status_message('Miscellaneous | Layout | Last Size/Minimize Info Panel   (Alt+F12)')
-			elif ScopeText == "#667": sublime.status_message('Miscellaneous | Layout | Maximize/Minimize Info Panel    (Shift+F12)')
+		elif ScopeName == "source.xys string":
+		 	self.view.window().run_command('goto_definition') # goto subscript symbol
 		elif ScopeName == "source.xys entity.name.function.xys":
 			# ScopeText = ScopeText.replace("#", "_")
 			arg = xypath + "\\XYplorer.chm::/idh_scripting_comref.htm#idh_sc_" + ScopeText
@@ -655,9 +20,11 @@ class contextual_help_xys(sublime_plugin.TextCommand):
 		elif ScopeName == "source.xys variable.parameter.native.xys":
 			subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_variables.htm"])
 		elif ScopeName == "source.xys keyword.operator":
-			subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting_operatorprecedence"])
-		elif ScopeName == "source.xys keyword.operator.heredoc":
-			subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting_heredoc"])
+			subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting.htm#idh_scripting_operatorprecedence"])
+		elif ScopeName == "source.xys string.unquoted.heredoc":
+			subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting.htm#idh_scripting_heredoc"])
+		elif ScopeName == "source.xys string.unquoted.nowdoc":
+			subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting.htm#idh_scripting_heredoc"])
 		elif ScopeName == "source.xys keyword.control.xys":
 			ScopeTextLower = ScopeText.lower()
 			if ScopeTextLower == "if" or ScopeTextLower == "elseif" or ScopeTextLower == "else":
@@ -668,8 +35,661 @@ class contextual_help_xys(sublime_plugin.TextCommand):
 				subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting.htm#idh_scripting_foreachloops"])
 			else:
 				subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting.htm"])
+		elif ScopeName == "source.xys entity.name.function.CommandID.xys":
+			# remember to strip 231-236 (New item template customizations) + 303...310 (thumbsizes)
+			# + 594,595 (Userprofile name)+ 862-867 (lbl names) + 442...464 (dates) + > 1400 (UDC)
+			CmdDict = {
+			"#100" : "File | To Clipboard | - submenu -",
+			"#101" : "File | To Clipboard | Item Path/Name(s)",
+			"#102" : "File | To Clipboard | Item Name(s)",
+			"#103" : "File | To Clipboard | Item Path(s)",
+			"#113" : "File | To Clipboard | Item Base(s)",
+			"#112" : "File | To Clipboard | Item Short Path/Name(s)",
+			"#114" : "File | To Clipboard | Item UNC Path/Name(s)",
+			"#104" : "File | To Clipboard | Name(s), Bytes, Modified[, Version]",
+			"#105" : "File | To Clipboard | Name(s), Bytes, Modified[, Version], Path",
+			"#116" : "File | To Clipboard | Name(s), Bytes, Modified[, Version], Path, MD5",
+			"#106" : "File | To Clipboard | Compact File Info",
+			"#107" : "File | To Clipboard | Extended File Info",
+			"#108" : "File | To Clipboard | Large Icon",
+			"#109" : "File | To Clipboard | Small Icon",
+			"#117" : "File | To Clipboard | Text",
+			"#115" : "File | To Clipboard | Image",
+			"#110" : "File | To Clipboard | Selected List Row(s)",
+			"#111" : "File | To Clipboard | All List Rows",
+			"#120" : "File | Rename Special | - submenu -",
+			"#121" : "File | Rename Special | Batch Rename...",
+			"#122" : "File | Rename Special | RegExp Rename...",
+			"#123" : "File | Rename Special | Search and Replace...",
+			"#124" : "File | Rename Special | Keep Particular Characters...",
+			"#125" : "File | Rename Special | Set Extension...",
+			"#147" : "File | Rename Special | Edit Item Names...",
+			"#138" : "File | Rename Special | A* A*.aaa",
+			"#126" : "File | Rename Special | Aaa Aa.aaa",
+			"#127" : "File | Rename Special | aaa aa.aaa",
+			"#128" : "File | Rename Special | AAA AA.AAA",
+			"#136" : "File | Rename Special | *.aaa",
+			"#137" : "File | Rename Special | *.AAA",
+			"#129" : "File | Rename Special | Spaces to _",
+			"#130" : "File | Rename Special | _ to Spaces",
+			"#139" : "File | Rename Special | Remove Diacritics",
+			"#131" : "File | Rename Special | Convert to ASCII",
+			"#132" : "File | Rename Special | UrlEscape (Space > %20 ...)",
+			"#133" : "File | Rename Special | UrlUnescape (%20 > Space ...)",
+			"#134" : "File | Rename Special | Unicode to UTF-8",
+			"#135" : "File | Rename Special | UTF-8 to Unicode",
+			"#140" : "File | Rename Special | Mp3 Special | - submenu -",
+			"#141" : "File | Rename Special | Mp3 Special | Filename (Artist - Title.mp3) to ID3 Tag",
+			"#142" : "File | Rename Special | Mp3 Special | Filename (Track - Artist - Title.mp3) to ID3 Tag",
+			"#143" : "File | Rename Special | Mp3 Special | Filename (Artist - Album - Track - Title.mp3) to ID3 Tag",
+			"#158" : "File | Rename Special | Mp3 Special | Filename (Artist - Year - Album - Track - Title.mp3) to ID3 Tag",
+			"#144" : "File | Rename Special | Mp3 Special | ID3 Tag to Filename (Artist\Album\Track.mp3)",
+			"#145" : "File | Rename Special | Mp3 Special | ID3 Tag to Filename (Artist - Title.mp3)",
+			"#146" : "File | Rename Special | Mp3 Special | ID3 Tag to Filename (Album - Track.mp3)",
+			"#159" : "File | Rename Special | Mp3 Special | ID3 Tag to Filename (Album - Track - Title.mp3)",
+			"#148" : "File | Rename Special | Preview All",
+			"#150" : "File | Move/Copy/Backup To | - submenu -",
+			"#151" : "File | Move/Copy/Backup To | Move To | - submenu -",
+			"#152" : "File | Move/Copy/Backup To | Copy To | - submenu -",
+			"#153" : "File | Move/Copy/Backup To | Backup To | - submenu -",
+			"#160" : "File | Open Selected Item(s)",
+			"#176" : "File | Open with...",
+			"#161" : "File | Open with Arguments...",
+			"#162" : "File | Open Focused Item",
+			"#156" : "File | Open...",
+			"#154" : "File | Duplicate | - submenu -",
+			"#163" : "File | Duplicate | Copy Here",
+			"#164" : "File | Duplicate | Copy Here with Increment",
+			"#165" : "File | Duplicate | Copy Here with Current Date",
+			"#166" : "File | Duplicate | Copy Here with Last Modified Date",
+			"#167" : "File | Duplicate | Copy Here As...",
+			"#1042" : "File | Duplicate | Copy Here to New Subfolder...",
+			"#1041" : "File | Duplicate | Move Here to New Subfolder...",
+			"#169" : "File | Delete",
+			"#172" : "File | Rename",
+			"#155" : "File | File Special | - submenu -",
+			"#168" : "File | File Special | Create Shortcut(s)",
+			"#170" : "File | File Special | Delete (No Recycle Bin)",
+			"#171" : "File | File Special | Delete (Skip Locked)",
+			"#157" : "File | File Special | Delete Long",
+			"#179" : "File | File Special | Wipe",
+			"#175" : "File | File Special | Swap Names",
+			"#1034" : "File | File Special | Set Modified Date to Current",
+			"#1073" : "File | File Special | Set Modified Date to Exif",
+			"#1074" : "File | File Special | Set Created Date to Exif",
+			"#198" : "File | File Special | Display Hash Values",
+			"#280" : "File | File Special | Extract Here",
+			"#281" : "File | File Special | Add to Zip...",
+			"#173" : "File | Properties",
+			"#197" : "File | Metadata",
+			"#174" : "File | Preview",
+			"#177" : "File | Quick File View",
+			"#178" : "File | Floating Preview",
+			"#182" : "File | Save Settings",
+			"#180" : "File | Settings Special | - submenu -",
+			"#181" : "File | Settings Special | Load Configuration...",
+			"#193" : "File | Settings Special | Save Configuration",
+			"#183" : "File | Settings Special | Save Configuration As...",
+			"#184" : "File | Settings Special | Save Copy of Configuration As...",
+			"#185" : "File | Settings Special | Create Shortcut to this Configuration...",
+			"#186" : "File | Settings Special | Save Catalog",
+			"#187" : "File | Settings Special | Save User-Defined Commands",
+			"#188" : "File | Settings Special | Save Keyboard Shortcuts",
+			"#194" : "File | Settings Special | Save Folder View Settings",
+			"#195" : "File | Settings Special | Save Tags",
+			"#189" : "File | Settings Special | Save Servers",
+			"#196" : "File | Settings Special | Backup Application Data Folder...",
+			"#190" : "File | Restart without Saving",
+			"#191" : "File | Exit without Saving",
+			"#192" : "File | Exit",
+			"#203" : "Edit | Undo",
+			"#204" : "Edit | Redo",
+			"#205" : "Edit | Action Log...",
+			"#223" : "Edit | Recent File Operations...",
+			"#200" : "Edit | Cut",
+			"#201" : "Edit | Copy",
+			"#202" : "Edit | Paste",
+			"#210" : "Edit | Paste Special | - submenu -",
+			"#211" : "Edit | Paste Special | Paste Here to New Subfolder...",
+			"#273" : "Edit | Paste Special | Paste Here with Path...",
+			"#207" : "Edit | Paste Special | Paste Here As...",
+			"#212" : "Edit | Paste Special | Paste (Move)",
+			"#213" : "Edit | Paste Special | Paste (Copy)",
+			"#272" : "Edit | Paste Special | Paste (Backup)",
+			"#218" : "Edit | Paste Special | Paste As Shortcut(s)",
+			"#208" : "Edit | Paste Special | Paste As Hard Link(s)",
+			"#270" : "Edit | Paste Special | Paste As Symbolic Link(s)",
+			"#271" : "Edit | Paste Special | Paste As Junction(s)",
+			"#275" : "Edit | Paste Special | Paste Extracted",
+			"#274" : "Edit | Paste Special | Paste Zipped",
+			"#209" : "Edit | Paste Special | Paste Folder Structure",
+			"#219" : "Edit | Paste Special | Paste Text Into New File",
+			"#206" : "Edit | Paste Special | Paste Image Into New File",
+			"#214" : "Edit | Paste Special | Mark Files in Clipboard as 'Cut'",
+			"#215" : "Edit | Paste Special | Mark Files in Clipboard as 'Copied'",
+			"#216" : "Edit | Paste Special | Edit Files in Clipboard...",
+			"#217" : "Edit | Paste Special | Clear Clipboard",
+			"#220" : "Edit | Move To...",
+			"#221" : "Edit | Copy To...",
+			"#222" : "Edit | Backup To...",
+			"#225" : "Edit | Compare | - submenu -",
+			"#227" : "Edit | Compare | Compare Current File with Previous File",
+			"#226" : "Edit | Compare | Compare Current File with File in Clipboard",
+			"#228" : "Edit | Compare | Compare Current File on Both Panes",
+			"#230" : "Edit | New | - submenu -",
+			"#231" : "Edit | New | New Folder Template 1",
+			"#232" : "Edit | New | New Folder Template 2",
+			"#233" : "Edit | New | New Folder Template 3",
+			"#234" : "Edit | New | New Text File Template 1",
+			"#235" : "Edit | New | New Text File Template 2",
+			"#236" : "Edit | New | New Text File Template 3",
+			"#241" : "Edit | New | New Shortcut...",
+			"#242" : "Edit | New | New Path...",
+			"#243" : "Edit | New | New Folders...",
+			"#244" : "Edit | New | New Files...",
+			"#240" : "Edit | New Items | - submenu -",
+			"#265" : "Edit | Select | - submenu -",
+			"#250" : "Edit | Select | Select All",
+			"#251" : "Edit | Select | Deselect All",
+			"#252" : "Edit | Select | Invert Selection",
+			"#257" : "Edit | Select | Restore Selection",
+			"#253" : "Edit | Select | Selection Filter...",
+			"#254" : "Edit | Select | Select By Selected Type(s)",
+			"#255" : "Edit | Select | Select All Files",
+			"#256" : "Edit | Select | Select Items...",
+			"#258" : "Edit | Select | Selection Stats",
+			"#260" : "Edit | Find Files...",
+			"#261" : "Edit | Find Now",
+			"#262" : "Edit | Repeat Last Search",
+			"#264" : "Edit | Search Templates...",
+			"#266" : "Edit | Quick Search...",
+			"#268" : "Edit | Toggle Quick Search",
+			"#267" : "Edit | Repeat Last Quick Search",
+			"#263" : "Edit | Show All Items In Branch",
+			"#301" : "View | Views | - submenu -",
+			"#302" : "View | Views | Details",
+			"#303" : "View | Views | Details with Thumbnails #1",
+			"#304" : "View | Views | List",
+			"#305" : "View | Views | Small Icons",
+			"#309" : "View | Views | Large Icons",
+			"#313" : "View | Views | Small Tiles",
+			"#314" : "View | Views | Large Tiles",
+			"#306" : "View | Views | Thumbnails #1",
+			"#307" : "View | Views | Thumbnails #2",
+			"#308" : "View | Views | Thumbnails #3",
+			"#310" : "View | Views | Configure Thumbnails...",
+			"#311" : "View | Views | Branch View",
+			"#320" : "View | Sort By | - submenu -",
+			"#319" : "View | Sort By | Index",
+			"#329" : "View | Sort By | Path",
+			"#321" : "View | Sort By | Name",
+			"#322" : "View | Sort By | Ext",
+			"#323" : "View | Sort By | Size",
+			"#324" : "View | Sort By | Type",
+			"#325" : "View | Sort By | Created",
+			"#326" : "View | Sort By | Modified",
+			"#327" : "View | Sort By | Accessed",
+			"#328" : "View | Sort By | Attr",
+			"#334" : "View | Sort By | Len",
+			"#335" : "View | Sort By | Label",
+			"#337" : "View | Sort By | Tags",
+			"#336" : "View | Sort By | Comment",
+			"#330" : "View | Sort By | Unsorted",
+			"#331" : "View | Sort By | Random Order",
+			"#332" : "View | Sort By | Sort Again",
+			"#338" : "View | Sort By | Previous Order",
+			"#339" : "View | Sort By | Reverse Order",
+			"#318" : "View | Sort By | Selected Items to Top",
+			"#333" : "View | Sort By | Sort Folders Apart",
+			"#312" : "View | Sort By | Show Sort Headers in All Views",
+			"#360" : "View | Columns | - submenu -",
+			"#361" : "View | Columns | Line Numbers",
+			"#384" : "View | Columns | Index",
+			"#370" : "View | Columns | Path",
+			"#362" : "View | Columns | Name",
+			"#363" : "View | Columns | Ext",
+			"#364" : "View | Columns | Size",
+			"#365" : "View | Columns | Type",
+			"#366" : "View | Columns | Created",
+			"#367" : "View | Columns | Modified",
+			"#368" : "View | Columns | Accessed",
+			"#369" : "View | Columns | Attr",
+			"#375" : "View | Columns | Len",
+			"#379" : "View | Columns | Label",
+			"#381" : "View | Columns | Tags",
+			"#380" : "View | Columns | Comment",
+			"#382" : "View | Columns | Show Columns...",
+			"#383" : "View | Columns | Add Column",
+			"#371" : "View | Columns | Show All Columns",
+			"#372" : "View | Columns | Autosize Columns Now",
+			"#373" : "View | Columns | Grow Name Column",
+			"#374" : "View | Columns | Shrink Name Column",
+			"#377" : "View | Columns | Load Column Layout...",
+			"#376" : "View | Columns | Save Column Layout As...",
+			"#378" : "View | Columns | Set Line Number Column Width...",
+			"#300" : "View | Tab | - submenu -",
+			"#340" : "View | Tab | New Tab",
+			"#341" : "View | Tab | Default Tab",
+			"#358" : "View | Tab | Iconize",
+			"#342" : "View | Tab | Rename Tab...",
+			"#344" : "View | Tab | Copy Location Term",
+			"#346" : "View | Tab | Relocate Tab...",
+			"#345" : "View | Tab | Tab History...",
+			"#347" : "View | Tab | Set Home",
+			"#348" : "View | Tab | Go Home",
+			"#349" : "View | Tab | Lock Home Zone",
+			"#350" : "View | Tab | Lock Location",
+			"#354" : "View | Tab | Set Visual Filter...",
+			"#355" : "View | Tab | Toggle Visual Filter",
+			"#359" : "View | Tab | Filter By Selection(s)",
+			"#356" : "View | Tab | Filter By Selected Extension(s)",
+			"#357" : "View | Tab | Filter Out Selected Extension(s)",
+			"#385" : "View | Tab | Type Stats and Filter...",
+			"#343" : "View | Tab | Restore Last Closed Tab",
+			"#352" : "View | Tab | Close All Other Unlocked Tabs",
+			"#353" : "View | Tab | Close All Other Tabs",
+			"#351" : "View | Tab | Close Tab",
+			"#510" : "View | Mini Tree | - submenu -",
+			"#489" : "View | Mini Tree | Mini Tree",
+			"#511" : "View | Mini Tree | Minimize Tree",
+			"#512" : "View | Mini Tree | Load Last Mini Tree",
+			"#513" : "View | Mini Tree | Mini Tree From Recent",
+			"#515" : "View | Mini Tree | Set as Favorite Mini Tree...",
+			"#516" : "View | Mini Tree | Load Favorite Mini Tree",
+			"#514" : "View | Mini Tree | Hide Current Folder",
+			"#770" : "View | Paper Folders | - submenu -",
+			"#771" : "View | Paper Folders | New...",
+			"#772" : "View | Paper Folders | Open...",
+			"#773" : "View | Paper Folders | Save",
+			"#774" : "View | Paper Folders | Save As...",
+			"#775" : "View | Paper Folders | Save Copy As...",
+			"#776" : "View | Paper Folders | Remove Selected Items",
+			"#777" : "View | Paper Folders | Empty Paper Folder",
+			"#778" : "View | Paper Folders | Toggle Paper Folder",
+			"#470" : "View | Folder View Settings | - submenu -",
+			"#471" : "View | Folder View Settings | Enable Folder View Settings",
+			"#472" : "View | Folder View Settings | Save Folder View",
+			"#478" : "View | Folder View Settings | Restore Folder View",
+			"#473" : "View | Folder View Settings | Edit...",
+			"#474" : "View | Folder View Settings | Remove",
+			"#475" : "View | Folder View Settings | Apply this Folder View Also To...",
+			"#476" : "View | Folder View Settings | Define this Folder View as Default",
+			"#477" : "View | Folder View Settings | Manage Folder Views...",
+			"#1001" : "View | Refresh",
+			"#480" : "View | Auto-Refresh",
+			"#481" : "View | Suspend Auto-Refresh",
+			"#488" : "View | Lock Tree",
+			"#482" : "View | Refresh Tree",
+			"#484" : "View | Reset Tree",
+			"#483" : "View | Refresh Current Folder",
+			"#485" : "View | Refresh List",
+			"#486" : "View | Reset List",
+			"#487" : "View | Calculate Folder Sizes",
+			"#490" : "View | Show Items | - submenu -",
+			"#491" : "View | Show Items | Show Floppy Drives",
+			"#492" : "View | Show Items | Show Hidden Drives",
+			"#493" : "View | Show Items | Show Hidden Files and Folders",
+			"#494" : "View | Show Items | Show System Files and Folders",
+			"#495" : "View | Show Items | Show Junctions",
+			"#496" : "View | Show Items | Show Folders in List",
+			"#500" : "View | Caches | - submenu -",
+			"#501" : "View | Caches | Refresh Thumbnails",
+			"#506" : "View | Caches | Refresh Selected Thumbnails",
+			"#502" : "View | Caches | Refresh Icons",
+			"#505" : "View | Caches | Refresh Environment Variables",
+			"#504" : "View | Caches | Update New Items Menu",
+			"#520" : "Go | Go to Previous Location",
+			"#535" : "Go | Go to Previous Item in List",
+			"#521" : "Go | Go to Last Target",
+			"#522" : "Go | Top",
+			"#523" : "Go | Up",
+			"#524" : "Go | Down",
+			"#525" : "Go | Breadcrumb...",
+			"#526" : "Go | Drives...",
+			"#527" : "Go | Back",
+			"#528" : "Go | Forward",
+			"#529" : "Go | History...",
+			"#539" : "Go | Recent Locations...",
+			"#530" : "Go | Hotlist...",
+			"#538" : "Go | Tablist...",
+			"#540" : "Go | Aliases...",
+			"#531" : "Go | Go to...",
+			"#532" : "Go | Go to from Here...",
+			"#533" : "Go | Go to Line...",
+			"#534" : "Go | Go to Application Folder",
+			"#536" : "Go | Go to Application Data Folder",
+			"#550" : "Favorites | Favorite Folders | - submenu -",
+			"#551" : "Favorites | Special System Folders | - submenu -",
+			"#552" : "Favorites | Special System Folders | Computer",
+			"#590" : "Favorites | Special System Folders | Desktop (Virtual)",
+			"#591" : "Favorites | Special System Folders | My Documents (Virtual)",
+			"#594" : "Favorites | Special System Folders | UserProfile (Virtual)",
+			"#592" : "Favorites | Special System Folders | Network (Virtual)",
+			"#593" : "Favorites | Special System Folders | Recycle Bin (Virtual)",
+			"#553" : "Favorites | Special System Folders | Desktop",
+			"#554" : "Favorites | Special System Folders | My Documents",
+			"#595" : "Favorites | Special System Folders | UserProfile",
+			"#555" : "Favorites | Special System Folders | Favorites",
+			"#556" : "Favorites | Special System Folders | Start Menu",
+			"#573" : "Favorites | Special System Folders | Program Files",
+			"#557" : "Favorites | Special System Folders | Windows Folder",
+			"#558" : "Favorites | Special System Folders | System Folder",
+			"#559" : "Favorites | Special System Folders | Temp Folder",
+			"#571" : "Favorites | Special System Folders | Temporary Internet Files",
+			"#572" : "Favorites | Special System Folders | Network Shortcuts",
+			"#560" : "Favorites | Special System Folders | Desktop (All Users)",
+			"#561" : "Favorites | Special System Folders | My Documents (All Users)",
+			"#562" : "Favorites | Special System Folders | Favorites (All Users)",
+			"#563" : "Favorites | Special System Folders | Start Menu (All Users)",
+			"#564" : "Favorites | Favorite Files | - submenu -",
+			"#565" : "Favorites | Favorite Files | Toggle Favorite File",
+			"#566" : "Favorites | Toggle Favorite Folder",
+			"#567" : "Favorites | Toggle Highlighted Folder",
+			"#568" : "Favorites | Toggle Boxed Branch",
+			"#569" : "Favorites | Set Highlight Color...",
+			"#570" : "Favorites | Set Box Color...",
+			"#860" : "Favorites | Labels | - submenu -",
+			"#861" : "Favorites | Labels | None",
+			"#862" : "Favorites | Labels | [Label #1]",
+			"#863" : "Favorites | Labels | [Label #2]",
+			"#864" : "Favorites | Labels | [Label #3]",
+			"#865" : "Favorites | Labels | [Label #4]",
+			"#866" : "Favorites | Labels | [Label #5]",
+			"#867" : "Favorites | Labels | [Label #6]",
+			"#868" : "Favorites | Labels | [Label #7]",
+			"#869" : "Favorites | Labels | [Label #8]",
+			"#870" : "Favorites | Labels | [Label #9]",
+			"#871" : "Favorites | Labels | [Label #10]",
+			"#872" : "Favorites | Labels | [Label #11]",
+			"#873" : "Favorites | Labels | [Label #12]",
+			"#874" : "Favorites | Labels | [Label #13]",
+			"#875" : "Favorites | Labels | [Label #14]",
+			"#876" : "Favorites | Labels | [Label #15]",
+			"#879" : "Favorites | Apply Last Label",
+			"#881" : "Favorites | Add Tags...",
+			"#882" : "Favorites | Add Tags by List...",
+			"#883" : "Favorites | Add Last Tags",
+			"#884" : "Favorites | Edit Tags...",
+			"#888" : "Favorites | Edit Tags by List...",
+			"#885" : "Favorites | Remove Tags by List...",
+			"#886" : "Favorites | Remove All Tags",
+			"#880" : "Favorites | Comment...",
+			"#887" : "Favorites | Reload Tags Database",
+			"#656" : "User | Manage Commands...",
+			"#1" : "User | Go To | - submenu -",
+			"#2" : "User | Open | - submenu -",
+			"#3" : "User | Open With | - submenu -",
+			"#4" : "User | Move To | - submenu -",
+			"#5" : "User | Copy To | - submenu -",
+			"#6" : "User | Backup To | - submenu -",
+			"#8" : "User | New | - submenu -",
+			"#7" : "User | Rename | - submenu -",
+			"#9" : "User | Run Script | - submenu -",
+			"#10" : "User | Load Script File | - submenu -",
+			"#754" : "Scripting | Run Script...",
+			"#755" : "Scripting | Run Script Again",
+			"#750" : "Scripting | Step Mode",
+			"#752" : "Scripting | Try Script...",
+			"#756" : "Scripting | Permanent Variables",
+			"#751" : "Scripting | Load Selected Script File",
+			"#753" : "Scripting | Load Script File...",
+			"#757" : "Scripting | Go to Scripts Folder",
+			"#600" : "Tools | Configuration...",
+			"#601" : "Tools | Open Configuration File...",
+			"#602" : "Tools | Customize Keyboard Shortcuts...",
+			"#603" : "Tools | Customize Toolbar...",
+			"#604" : "Tools | Customize File Associations...",
+			"#605" : "Tools | Customize File Icons...",
+			"#390" : "Tools | Customize Tree | - submenu -",
+			"#391" : "Tools | Customize Tree | Show Icons",
+			"#392" : "Tools | Customize Tree | Show Expansion Icons",
+			"#393" : "Tools | Customize Tree | Show Lines",
+			"#394" : "Tools | Customize Tree | Mark Favorites (Icon)",
+			"#395" : "Tools | Customize Tree | Mark Favorites (Bold)",
+			"#396" : "Tools | Customize Tree | Narrow Tree",
+			"#397" : "Tools | Customize Tree | Rename On Slow Double-Click",
+			"#398" : "Tools | Customize Tree | Apply Highlighting",
+			"#399" : "Tools | Customize Tree | Full Row Select",
+			"#419" : "Tools | Customize Tree | Tree Path Tracing",
+			"#400" : "Tools | Customize List | - submenu -",
+			"#401" : "Tools | Customize List | Show Icons",
+			"#402" : "Tools | Customize List | Column Drag",
+			"#403" : "Tools | Customize List | Multiple Select",
+			"#404" : "Tools | Customize List | Full Row Select",
+			"#405" : "Tools | Customize List | Highlight Sorted Column",
+			"#406" : "Tools | Customize List | Show Line Numbers",
+			"#407" : "Tools | Customize List | Autosize Columns",
+			"#408" : "Tools | Customize List | Show Grid",
+			"#409" : "Tools | Customize List | Highlight Focused Item",
+			"#410" : "Tools | Customize List | Highlight Selected Rows",
+			"#411" : "Tools | Customize List | Rename On Slow Double-Click",
+			"#412" : "Tools | Customize List | Hide Extensions",
+			"#413" : "Tools | Customize List | Sticky Selection",
+			"#414" : "Tools | Customize List | Manual Sorting",
+			"#415" : "Tools | Customize List | Checkbox Selection",
+			"#416" : "Tools | Customize List | Ignore Articles When Sorting",
+			"#420" : "Tools | Customize List | Size Column Format | - submenu -",
+			"#431" : "Tools | Customize List | Size Column Format | Show Folder Sizes",
+			"#421" : "Tools | Customize List | Size Column Format | Show Space Used",
+			"#422" : "Tools | Customize List | Size Column Format | Raw Bytes Count",
+			"#423" : "Tools | Customize List | Size Column Format | Bytes",
+			"#424" : "Tools | Customize List | Size Column Format | KB (Rounded Up)",
+			"#425" : "Tools | Customize List | Size Column Format | KB",
+			"#426" : "Tools | Customize List | Size Column Format | MB",
+			"#427" : "Tools | Customize List | Size Column Format | GB",
+			"#432" : "Tools | Customize List | Size Column Format | TB",
+			"#433" : "Tools | Customize List | Size Column Format | PB",
+			"#428" : "Tools | Customize List | Size Column Format | Flexible",
+			"#429" : "Tools | Customize List | Size Column Format | Flexible (Rounded Up)",
+			"#430" : "Tools | Customize List | Size Column Format | Clusters",
+			"#440" : "Tools | Customize List | Date Column Format | - submenu -",
+			"#441" : "Tools | Customize List | Date Column Format | Show Age",
+			"#453" : "Tools | Customize List | Date Column Format | Show Weekday",
+			"#455" : "Tools | Customize List | Date Column Format | Show Milliseconds",
+			"#454" : "Tools | Customize List | Date Column Format | Show Times in UTC",
+			"#442" : "Tools | Customize List | Date Column Format | System Short Date",
+			"#443" : "Tools | Customize List | Date Column Format | System Long Date",
+			"#444" : "Tools | Customize List | Date Column Format | dd/mm/yy",
+			"#445" : "Tools | Customize List | Date Column Format | dd/mm/yyyy",
+			"#446" : "Tools | Customize List | Date Column Format | mm/dd/yy",
+			"#447" : "Tools | Customize List | Date Column Format | mm/dd/yyyy",
+			"#448" : "Tools | Customize List | Date Column Format | dd-mmm-yy",
+			"#449" : "Tools | Customize List | Date Column Format | dd-mmm-yyyy",
+			"#450" : "Tools | Customize List | Date Column Format | ISO 8601",
+			"#451" : "Tools | Customize List | Date Column Format | ISO Week",
+			"#452" : "Tools | Customize List | Date Column Format | Zodiac",
+			"#460" : "Tools | Customize List | Date Column Format | System Time",
+			"#461" : "Tools | Customize List | Date Column Format | hh:nn",
+			"#462" : "Tools | Customize List | Date Column Format | hh:nn am/pm",
+			"#463" : "Tools | Customize List | Date Column Format | hh:nn AM/PM",
+			"#464" : "Tools | Customize List | Date Column Format | ISO 8601",
+			"#465" : "Tools | Customize List | Date Column Format | No Time",
+			"#610" : "Tools | List Management | - submenu -",
+			"#611" : "Tools | List Management | Address Bar & Go to...",
+			"#614" : "Tools | List Management | Portable File Associations...",
+			"#653" : "Tools | List Management | Portable File Icons...",
+			"#618" : "Tools | List Management | History...",
+			"#630" : "Tools | List Management | Mini Tree...",
+			"#619" : "Tools | List Management | Move/Copy/Backup To...",
+			"#631" : "Tools | List Management | Recent Locations...",
+			"#632" : "Tools | List Management | Recently Opened Files...",
+			"#634" : "Tools | List Management | Recent Catalogs...",
+			"#636" : "Tools | List Management | Recently Included Catalogs...",
+			"#650" : "Tools | List Management | Recent Tabsets Pane 1...",
+			"#651" : "Tools | List Management | Recent Tabsets Pane 2...",
+			"#612" : "Tools | List Management | Favorite Folders...",
+			"#613" : "Tools | List Management | Favorite Files...",
+			"#627" : "Tools | List Management | Highlighted Folders...",
+			"#628" : "Tools | List Management | Boxed Branches...",
+			"#629" : "Tools | List Management | Color Filters...",
+			"#654" : "Tools | List Management | Instant Color Filters...",
+			"#635" : "Tools | List Management | Tag List...",
+			"#637" : "Tools | List Management | Tagged Items...",
+			"#623" : "Tools | List Management | Selection Filters...",
+			"#624" : "Tools | List Management | Visual Filters...",
+			"#652" : "Tools | List Management | Power Filters...",
+			"#633" : "Tools | List Management | Aliases...",
+			"#615" : "Tools | List Management | Find Files: Name...",
+			"#616" : "Tools | List Management | Find Files: Location...",
+			"#617" : "Tools | List Management | Find Files: Excluded Items...",
+			"#638" : "Tools | List Management | Quick Search...",
+			"#622" : "Tools | List Management | Rename Special: Batch Rename...",
+			"#621" : "Tools | List Management | Rename Special: RegExp Rename...",
+			"#620" : "Tools | List Management | Rename Special: Search and Replace...",
+			"#625" : "Tools | List Management | Files in Clipboard...",
+			"#626" : "Tools | List Management | Servers in Network Folder...",
+			"#639" : "Tools | Tools Special | - submenu -",
+			"#640" : "Tools | Tools Special | Control Panel...",
+			"#641" : "Tools | Tools Special | Open Recycle Bin...",
+			"#642" : "Tools | Tools Special | Empty Recycle Bin...",
+			"#643" : "Tools | Tools Special | Recycle Bin Stats...",
+			"#644" : "Tools | Tools Special | Map Network Drive...",
+			"#645" : "Tools | Tools Special | Disconnect Mapped Network Drive...",
+			"#646" : "Tools | Tools Special | Reconnect All Mapped Network Drives",
+			"#648" : "Tools | Tools Special | Browse for Network Server...",
+			"#800" : "Panes | Dual Pane",
+			"#801" : "Panes | Horizontal Panes",
+			"#802" : "Panes | Toggle Active Pane",
+			"#803" : "Panes | Move to Other Pane",
+			"#804" : "Panes | Copy to Other Pane",
+			"#807" : "Panes | Backup to Other Pane",
+			"#805" : "Panes | Move Tab to Other Pane",
+			"#806" : "Panes | Copy Tab to Other Pane",
+			"#1070" : "Panes | Go to Other Location",
+			"#810" : "Panes | Go Here in Other Pane",
+			"#811" : "Panes | Swap Locations",
+			"#814" : "Panes | Sync Browse",
+			"#813" : "Panes | Sync Scroll",
+			"#812" : "Panes | Sync Select...",
+			"#690" : "Panes | Tabs | - submenu -",
+			"#850" : "Tabsets | New...",
+			"#851" : "Tabsets | Open...",
+			"#856" : "Tabsets | Open As...",
+			"#857" : "Tabsets | Revert to Saved",
+			"#852" : "Tabsets | Save",
+			"#853" : "Tabsets | Save As...",
+			"#854" : "Tabsets | Save Copy As...",
+			"#855" : "Tabsets | Rename...",
+			"#858" : "Tabsets | Go to Tabset Folder",
+			"#660" : "Window | Show Address Bar",
+			"#661" : "Window | Show Toolbar",
+			"#662" : "Window | Show Tab Bar",
+			"#671" : "Window | Show Breadcrumb Bar",
+			"#670" : "Window | Show Status Bar",
+			"#669" : "Window | Show Status Bar Buttons",
+			"#663" : "Window | Show Navigation Panels",
+			"#668" : "Window | Show Tree",
+			"#664" : "Window | Show Catalog",
+			"#665" : "Window | Show Info Panel",
+			"#680" : "Window | Arrangement | - submenu -",
+			"#681" : "Window | Arrangement | Address Bar and Toolbar Stacked",
+			"#682" : "Window | Arrangement | Toolbar First",
+			"#687" : "Window | Arrangement | Tree and Catalog Stacked",
+			"#686" : "Window | Arrangement | Catalog First",
+			"#691" : "Window | Arrangement | List Right",
+			"#692" : "Window | Arrangement | List Centered",
+			"#693" : "Window | Arrangement | List Left",
+			"#683" : "Window | Arrangement | Wide Tabs",
+			"#685" : "Window | Arrangement | Wide Info Panel",
+			"#672" : "Window | Load Layout...",
+			"#673" : "Window | Save Layout As...",
+			"#700" : "Help | Contents and Index",
+			"#701" : "Help | Help on Keyboard Shortcuts",
+			"#704" : "Help | Help on Scripting Commands",
+			"#702" : "Help | Keyboard Shortcuts on Menu",
+			"#703" : "Help | Command IDs on Menu",
+			"#705" : "Help | List All Commands...",
+			"#710" : "Help | Online Support | - submenu -",
+			"#711" : "Help | Online Support | Check for Updates",
+			"#712" : "Help | Online Support | What's New?",
+			"#713" : "Help | Online Support | Homepage",
+			"#714" : "Help | Online Support | Support",
+			"#715" : "Help | Online Support | User Forum",
+			"#719" : "Help | Online Support | Buy Now",
+			"#718" : "Help | Online Support | Upgrade License",
+			"#725" : "Help | Update Registration Details...",
+			"#728" : "Help | Environment Variables",
+			"#727" : "Help | Various Information",
+			"#731" : "Help | Select Language...",
+			"#729" : "Help | Select Local Language File...",
+			"#730" : "Help | Back to English",
+			"#732" : "Help | Interface Translation Tool",
+			"#726" : "Help | About XYplorer",
+			"#1000" : "Miscellaneous | General Functions | Stop",
+			"#1005" : "Miscellaneous | General Functions | Open Command Prompt Here",
+			"#1061" : "Miscellaneous | General Functions | Toggle Main Menu",
+			"#1002" : "Miscellaneous | File Operations | Delete (Skip Locked, No Recycle)",
+			"#1054" : "Miscellaneous | File Operations | Nuke",
+			"#1055" : "Miscellaneous | File Operations | Delete (Recycle, No Confirmation)",
+			"#1056" : "Miscellaneous | File Operations | Move Up",
+			"#1053" : "Miscellaneous | File Operations | Open Selected Item(s) with OS Default",
+			"#1057" : "Miscellaneous | File Operations | Open Selected Item(s) by Shell",
+			"#1004" : "Miscellaneous | File Operations | Open in Browser",
+			"#1003" : "Miscellaneous | Preview | Full Screen Preview",
+			"#1072" : "Miscellaneous | Preview | Close Preview",
+			"#1031" : "Miscellaneous | Preview | Snapshot Video Preview",
+			"#1006" : "Miscellaneous | Go To | Go to Focused Item",
+			"#1007" : "Miscellaneous | Go To | Go to Focused Item in New Tab",
+			"#1008" : "Miscellaneous | Go To | Open Containing Folder in New Background Tab",
+			"#1043" : "Miscellaneous | Go To | Open Folder in New Tab",
+			"#1062" : "Miscellaneous | Go To | Open Folder in Other Pane",
+			"#1063" : "Miscellaneous | Go To | Open Folder in Other Pane in New Tab",
+			"#1046" : "Miscellaneous | Go To | Go to Shortcut Target",
+			"#1047" : "Miscellaneous | Tree | Create New Subfolder Here",
+			"#1009" : "Miscellaneous | Tree | Fully Collapse Drive",
+			"#1010" : "Miscellaneous | Tree | Fully Collapse",
+			"#1011" : "Miscellaneous | Tree | Fully Expand",
+			"#1040" : "Miscellaneous | Tree | Optimize Tree",
+			"#1071" : "Miscellaneous | List | Copy List Settings from Other Pane",
+			"#1020" : "Miscellaneous | Select Info Panel Tab | Properties",
+			"#1021" : "Miscellaneous | Select Info Panel Tab | Version",
+			"#1022" : "Miscellaneous | Select Info Panel Tab | Meta",
+			"#1023" : "Miscellaneous | Select Info Panel Tab | Preview",
+			"#1024" : "Miscellaneous | Select Info Panel Tab | Raw View",
+			"#1025" : "Miscellaneous | Select Info Panel Tab | Tags",
+			"#1058" : "Miscellaneous | Select Info Panel Tab | Find Files",
+			"#1059" : "Miscellaneous | Select Info Panel Tab | Report",
+			"#1027" : "Miscellaneous | Window State | Minimize Window",
+			"#1028" : "Miscellaneous | Window State | Maximize Window",
+			"#1029" : "Miscellaneous | Window State | Restore Window",
+			"#1032" : "Miscellaneous | Window State | Center Window",
+			"#1013" : "Miscellaneous | Focus Functions | Cycle Focus",
+			"#1014" : "Miscellaneous | Focus Functions | Focus Address Bar",
+			"#1015" : "Miscellaneous | Focus Functions | Focus Catalog",
+			"#1016" : "Miscellaneous | Focus Functions | Focus List",
+			"#1017" : "Miscellaneous | Focus Functions | Focus Tree",
+			"#1012" : "Miscellaneous | Focus Functions | Move Focused Item Into View",
+			"#1033" : "Miscellaneous | Focus Functions | Switch Focus between Files and Folders",
+			"#1048" : "Miscellaneous | Focus Functions | Focus First Selected Item",
+			"#1049" : "Miscellaneous | Focus Functions | View First Selected Item",
+			"#1075" : "Miscellaneous | Focus Functions | Next Type Ahead Match",
+			"#1076" : "Miscellaneous | Focus Functions | Previous Type Ahead Match",
+			"#1060" : "Miscellaneous | Tab Functions | Open Previous Tab",
+			"#1019" : "Miscellaneous | Tab Functions | Cycle Tabs Backward",
+			"#1018" : "Miscellaneous | Tab Functions | Cycle Tabs Forward",
+			"#1039" : "Miscellaneous | Tab Functions | Cycle Tabs Backward, Delay Browsing",
+			"#1038" : "Miscellaneous | Tab Functions | Cycle Tabs Forward, Delay Browsing",
+			"#1044" : "Miscellaneous | Tab Functions | Move Tab Left",
+			"#1045" : "Miscellaneous | Tab Functions | Move Tab Right",
+			"#1026" : "Miscellaneous | Find Files | Open Find Files and Reset",
+			"#1030" : "Miscellaneous | Find Files | Search All Tabs",
+			"#1035" : "Miscellaneous | Timestamp | Set Created Date to Current",
+			"#1036" : "Miscellaneous | Timestamp | Set Accessed Date to Current",
+			"#1037" : "Miscellaneous | Timestamp | Set Modified Date to Created Date",
+			"#1077" : "Miscellaneous | Various | Toggle Instant Color Filter",
+			"#1078" : "Miscellaneous | Various | Reopen List Management",
+			"#666" : "Miscellaneous | Layout | Last Size/Minimize Info Panel",
+			"#667" : "Miscellaneous | Layout | Maximize/Minimize Info Panel"
+			}
+			if ScopeText in CmdDict :
+				sublime.status_message(CmdDict[ScopeText])
+			else:
+				sublime.status_message(ScopeText + ": Command ID not recognized")
+
 		else:
-			window.run_command("move_to", {"to": "hardeol"})        # Add new line
-			window.run_command("insert", {"characters": "\n"})      # Add new line
+			# tofix
+			sublime.run_command("move_to", {"to": "hardeol"})        # Add new line
+			sublime.run_command("insert", {"characters": "\n"})      # Add new line
+
 # ::/idh_scripting_comref.htm#idh_sc_folderreport
-# mk:@MSITStore:E:\7Utilities\XYplorer\XYplorer.chm::/idh_scripting_comref.htm#idh_sc_getpathcomponent
+# mk:@MSITStore:C:\XYplorer\XYplorer.chm::/idh_scripting_comref.htm#idh_sc_getpathcomponent

@@ -1,4 +1,4 @@
 {
-	"cmd": ["E:\\Utilities\\XYplorer\\XYplorer.exe", "", "/script=$file", "/flg=2"],
+	"cmd": ["C:\\Program Files\\XYplorer\\XYplorer.exe", "", "/script=$file", "/flg=2"],
 	"selector": "source.xys"
 }

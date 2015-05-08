@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- skip native commands as symbols, for a manageable symbol list. -->
+	<key>name</key>
+	<string>SymbolsHidden</string>
+	<key>scope</key>
+	<string>source.xys entity.name.function.xys, source.xys entity.name.function.CommandID.xys</string>
+	<key>settings</key>
+	<dict>
+		<key>showInSymbolList</key>
+		<integer>0</integer>
+		<key>showInIndexedSymbolList</key>
+		<integer>0</integer>
+	</dict>
+</dict>
+</plist>

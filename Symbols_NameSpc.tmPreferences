@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- index UDFs -->
+	<key>name</key>
+	<string>SymbolsNS</string>
+	<key>scope</key>
+	<string>source.xys entity.name.section.xys</string>
+	<key>settings</key>
+	<dict>
+		<key>showInSymbolList</key>
+		<integer>1</integer>
+		<key>symbolTransformation</key>
+		<string>/^(.*)$/\1   [namespace]/g</string>   <!-- Convert to lower case -->
+		<key>showInIndexedSymbolList</key>
+		<string>0</string>
+	</dict>
+</dict>
+</plist>

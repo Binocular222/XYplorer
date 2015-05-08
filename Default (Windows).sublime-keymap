@@ -1,3 +1,14 @@
 [
-  {"keys": ["ctrl+enter"], "command": "contextual_help_xys", "context": [{"key": "selector", "operator": "equal", "operand": "source.xys"} ]},
+	{
+		"keys": ["ctrl+enter"],
+		"command": "contextual_help_xys",
+		"context":
+		[
+			{
+				"key": "selector",
+				"operator": "equal",
+				"operand": "source.xys"
+			}
+		]
+	}
 ]

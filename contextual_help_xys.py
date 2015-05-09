@@ -8,7 +8,10 @@ class contextual_help_xys(sublime_plugin.TextCommand):
 		ScopeText = self.view.substr(self.view.extract_scope(CursorLocation.a))
 		if ScopeName == "source.xys entity.name.function.UDF.xys":
 			# need to handle namespaces
-			self.view.window().run_command('goto_definition')
+			self.view.window().run_command('goto_definition', {"symbol" : ScopeText.lower()})
+		elif ScopeName == "source.xys string":
+			# goto subscript by label; needs huge refinement
+		 	self.view.window().run_command('goto_definition')
 		elif ScopeName == "source.xys entity.name.function.xys":
 			subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting_comref.htm#idh_sc_" + ScopeText])
 		elif ScopeName == "source.xys variable.parameter.xys":
@@ -27,10 +30,10 @@ class contextual_help_xys(sublime_plugin.TextCommand):
 				subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting.htm#idh_scripting_ifthen"])
 			elif ScopeTextLower == "while":
 				subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting.htm#idh_scripting_whileloops"])
-			elif ScopeTextLower == "foreach" or ScopeTextLower == "break" or ScopeTextLower == "continue":
+			elif ScopeTextLower == "foreach":
 				subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting.htm#idh_scripting_foreachloops"])
-			elif ScopeTextLower == "step" or ScopeTextLower == "unstep":
-				subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting.htm#idh_scripting_stepmode"])
+			elif ScopeTextLower == "step" or ScopeTextLower == "unstep" or ScopeTextLower == "break" or ScopeTextLower == "continue":
+				subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting_comref.htm#idh_sc_" + ScopeText])
 			else:
 				subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting.htm"])
 		elif ScopeName == "source.xys entity.name.function.CommandID.xys":
@@ -683,7 +686,9 @@ class contextual_help_xys(sublime_plugin.TextCommand):
 				sublime.status_message(CmdDict[ScopeText])
 			else:
 				sublime.status_message(ScopeText + ": Command ID not recognized")
-		else:   #Contextual_help is assigned to ctrl+enter, which coincides with Sublime Text's kb shortcut for new line macro => This is to compensate
+		else:
+			# Contextual_help is assigned to ctrl+enter, which coincides with
+			# ST's kb shortcut for new line macro. This is to compensate.
 			self.view.window().run_command("move_to", {"to": "hardeol"})        # Add new line
 			self.view.window().run_command("insert", {"characters": "\n"})      # Add new line
 

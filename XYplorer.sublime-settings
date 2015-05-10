@@ -1,5 +1,5 @@
 {
-	"extensions":["xys","xyi","inc"],
+	"extensions":["xys", "xyi", "inc"],
 	// "default_encoding": "UTF-8",
 	"default_encoding": "UTF-16 LE with BOM",
 	"default_line_ending": "windows",

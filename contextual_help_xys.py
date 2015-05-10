@@ -5,10 +5,10 @@ class contextual_help_xys(sublime_plugin.TextCommand):
 		xypath = self.view.settings().get('xypath')
 		CursorLocation = self.view.sel()[0]
 		ScopeName = self.view.scope_name(CursorLocation.a).strip()
-		ScopeText = self.view.substr(self.view.extract_scope(CursorLocation.a))
+		ScopeText = self.view.substr(self.view.extract_scope(CursorLocation.a)).lower()
 		if ScopeName == "source.xys entity.name.function.UDF.xys":
 			# need to handle namespaces
-			self.view.window().run_command('goto_definition', {"symbol" : ScopeText.lower()})
+			self.view.window().run_command('goto_definition')
 		elif ScopeName == "source.xys string":
 			# goto subscript by label; needs huge refinement
 		 	self.view.window().run_command('goto_definition')
@@ -25,14 +25,14 @@ class contextual_help_xys(sublime_plugin.TextCommand):
 		elif ScopeName == "source.xys string.unquoted.nowdoc":
 			subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting.htm#idh_scripting_heredoc"])
 		elif ScopeName == "source.xys keyword.control.xys":
-			ScopeTextLower = ScopeText.lower().strip('({')
-			if ScopeTextLower == "if" or ScopeTextLower == "elseif" or ScopeTextLower == "else":
+			ScopeText = ScopeText.strip('({')
+			if ScopeText == "if" or ScopeText == "elseif" or ScopeText == "else":
 				subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting.htm#idh_scripting_ifthen"])
-			elif ScopeTextLower == "while":
+			elif ScopeText == "while":
 				subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting.htm#idh_scripting_whileloops"])
-			elif ScopeTextLower == "foreach":
+			elif ScopeText == "foreach":
 				subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting.htm#idh_scripting_foreachloops"])
-			elif ScopeTextLower == "step" or ScopeTextLower == "unstep" or ScopeTextLower == "break" or ScopeTextLower == "continue":
+			elif ScopeText == "step" or ScopeText == "unstep" or ScopeText == "break" or ScopeText == "continue":
 				subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting_comref.htm#idh_sc_" + ScopeText])
 			else:
 				subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting.htm"])

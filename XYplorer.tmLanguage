@@ -54,6 +54,20 @@
 
 		<dict>
 			<key>name</key>
+			<string>variable.parameter.xys</string>
+			<key>match</key>
+			<string>\|:\w+|(?i)\$[a-z_]\w*|\{:(Text|Image|Photo|Audio|Video|Media|Font|Vector|Web|Office|Archive|Executable)\}</string>
+		</dict>
+
+		<dict>
+			<key>name</key>
+			<string>variable.parameter.native.xys</string>
+			<key>match</key>
+			<string>&lt;[ .,\*\|\#\:\-\+\w]+&gt;|%[A-Za-z0-9()_-]+%</string> <!-- removed {templates}, consider them as strings -->
+		</dict>
+
+		<dict>
+			<key>name</key>
 			<string>keyword.control.xys</string>
 			<key>match</key>
 			<string>(?i)\b(?:step|unstep|break|continue|while|if|else|elseif|foreach)\b</string>
@@ -84,21 +98,6 @@
 					<string>entity.name.section.xys</string>
 				</dict>
 			</dict>
-		</dict>
-
-
-		<dict>
-			<key>name</key>
-			<string>variable.parameter.xys</string>
-			<key>match</key>
-			<string>\|:\w+|(?i)\$\w+|\{:(Text|Image|Photo|Audio|Video|Media|Font|Vector|Web|Office|Archive|Executable)\}</string>
-		</dict>
-
-		<dict>
-			<key>name</key>
-			<string>variable.parameter.native.xys</string>
-			<key>match</key>
-			<string>&lt;[ .,\*\|\#\:\-\+\w]+&gt;|%[A-Za-z0-9()_-]+%</string> <!-- removed {templates}, consider them as strings -->
 		</dict>
 
 		<dict>
@@ -165,6 +164,7 @@
 			</dict>
 		</dict> -->
 		<!-- string scope defined afterwards so it does not consume subscriptcaption region -->
+
 <!-- 		<dict>
 			<key>name</key>
 			<string>string</string>
@@ -201,6 +201,7 @@
 			<key>match</key>
 			<string>(?&lt;=\s)[\w:]+(?=\s*\()</string> <!-- (?<=\s).+(?=\() -->
 		</dict>
+
 
 	</array>
 </dict>

@@ -11,7 +11,7 @@ class contextual_help_xys(sublime_plugin.TextCommand):
 			self.view.window().run_command('goto_definition')
 		elif ScopeName == "source.xys string":
 			# goto subscript by label; needs huge refinement
-		 	self.view.window().run_command('goto_definition')
+			self.view.window().run_command('goto_definition')
 		elif ScopeName == "source.xys entity.name.function.xys":
 			subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting_comref.htm#idh_sc_" + ScopeText])
 		elif ScopeName == "source.xys variable.parameter.xys":

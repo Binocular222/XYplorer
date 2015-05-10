@@ -6,7 +6,7 @@ Alternative version: https://github.com/SammaySarkar/XYplorer
 - ####INSTALL:
 	+ **With [Package Control](https://packagecontrol.io/)**
 		- open Command Palette (<kbd>CTRL</kbd>+<kbd>SHIFT</kbd>+<kbd>P</kbd>) and pick `Package Control: Add Repository`
-		- Enter `https://github.com/Binocular222/XYplorer/` as the Repository URL
+		- Enter `https://github.com/Binocular222/XYplorer` as the Repository URL
 		- Now do `Package Control: Install Package`, search for and install `XYplorer`
 	+ **Without Package Control**
 		- Download this repo as [zip](https://github.com/Binocular222/XYplorer/archive/master.zip).

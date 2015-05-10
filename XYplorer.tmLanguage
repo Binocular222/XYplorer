@@ -20,7 +20,7 @@
 			<key>name</key>
 			<string>comment.line.xys</string>
 			<key>match</key>
-			<string>//.*</string> <!-- removed url detection, unnecessary -->
+			<string>(?&lt;!tp:)//.*?$</string>  <!-- exclude tp:  at the begining to avoid http:// and ftp:// -->
 		</dict>
 		<dict>
 			<key>name</key>
@@ -42,28 +42,14 @@
 			<key>name</key>
 			<string>entity.name.function.xys</string>  <!-- native commands,eg: beep freq,time -->
 			<key>match</key>
-			<string>(?i)\b(?:assert|backupto|beep|box|br|button|call|catalogload|charview|comparehash|comment|copy|copyas|copydata|copyitem|copytext|copyto|delete|download|echo|edittags|end|exist|exit|filter|focus|fresh|freshhere|global|goto|hashlist|help|highlight|incr|info|internetflags|load|loadsearch|loadtree|logtofile|makecoffee|moveas|moveto|msecs|msg|open|openwith|perm|popupmainmenu|quickfileview|readpv|releaseglobals|rename|return|rotate|rtfm|run|savesettings|screen|sel|selectitems|selfilter|seltab|sendkeys|set|setkey|setting|settingp|showhash|showshellprops|snippet|sortby|sound|status|sub|swapnames|sysicons|tag|text|timestamp|unset|unthumb|userbutton|wait|winpos|winsize|wipe|writepv)\b</string>
+			<string>(?i)\b(?:assert|backupto|beep|box|br|button|call|catalogload|charview|comparehash|comment|copy|copyas|copydata|copyitem|copytext|copyto|delete|download|echo|edittags|end|exist|exit|filter|focus|fresh|freshhere|global|goto|hashlist|help|highlight|incr|info|internetflags|load|loadsearch|loadtree|logtofile|makecoffee|moveas|moveto|msecs|msg|open|openwith|perm|popupmainmenu|quickfileview|readpv|releaseglobals|rename|return|rotate|rtfm|run|savesettings|screen|sel|selectitems|selfilter|seltab|sendkeys|set|setkey|setting|settingp|showhash|showshellprops|snippet|sortby|sound|status|sub|swapnames|sysicons|tag|text|timestamp|unset|unthumb|userbutton|wait|winpos|winsize|wipe|writepv)(?=\s)</string>
 		</dict>
 
 		<dict>
 			<key>name</key>
 			<string>entity.name.function.CommandID.xys</string>
 			<key>match</key>
-			<string>(?&lt;!\w)#\d{3,4}(?!\w)</string>
-		</dict>
-
-		<dict>
-			<key>name</key>
-			<string>variable.parameter.xys</string>
-			<key>match</key>
-			<string>\|:\w+|(?i)\$\w+|\{:(Text|Image|Photo|Audio|Video|Media|Font|Vector|Web|Office|Archive|Executable)\}</string>
-		</dict>
-
-		<dict>
-			<key>name</key>
-			<string>variable.parameter.native.xys</string>
-			<key>match</key>
-			<string>&lt;[ .,\*\|\#\:\-\+\w]+&gt;|%[A-Za-z0-9()_-]+%</string> <!-- removed {templates}, consider them as strings -->
+			<string>(?&lt;!\w)#1?\d{3}(?!\w)</string>
 		</dict>
 
 		<dict>
@@ -98,6 +84,21 @@
 					<string>entity.name.section.xys</string>
 				</dict>
 			</dict>
+		</dict>
+
+
+		<dict>
+			<key>name</key>
+			<string>variable.parameter.xys</string>
+			<key>match</key>
+			<string>\|:\w+|(?i)\$\w+|\{:(Text|Image|Photo|Audio|Video|Media|Font|Vector|Web|Office|Archive|Executable)\}</string>
+		</dict>
+
+		<dict>
+			<key>name</key>
+			<string>variable.parameter.native.xys</string>
+			<key>match</key>
+			<string>&lt;[ .,\*\|\#\:\-\+\w]+&gt;|%[A-Za-z0-9()_-]+%</string> <!-- removed {templates}, consider them as strings -->
 		</dict>
 
 		<dict>
@@ -147,7 +148,7 @@
 			<string>^\1;?$</string>
 		</dict>
 
-		<dict>
+<!-- 		<dict>
 			<key>comment</key>
 			<string>matches subscript caption</string>
 			<key>name</key>
@@ -162,15 +163,14 @@
 					<string>meta.class.scriptcaption.xys</string>
 				</dict>
 			</dict>
-		</dict>
+		</dict> -->
 		<!-- string scope defined afterwards so it does not consume subscriptcaption region -->
-
-		<dict>
+<!-- 		<dict>
 			<key>name</key>
 			<string>string</string>
 			<key>match</key>
 			<string>(&quot;|')(.*?)\1</string>
-		</dict>
+		</dict> -->
 
 		<dict>
 			<key>comment</key>
@@ -201,7 +201,6 @@
 			<key>match</key>
 			<string>(?&lt;=\s)[\w:]+(?=\s*\()</string> <!-- (?<=\s).+(?=\() -->
 		</dict>
-
 
 	</array>
 </dict>

@@ -1,15 +1,15 @@
-##XYplorer
+﻿##XYplorer
 **XYplorer support package for Sublime Text**
 
-*(forked from https://github.com/Binocular222/XYplorer )*
+Alternative version: https://github.com/SammaySarkar/XYplorer  
 
 - ####INSTALL:
 	+ **With [Package Control](https://packagecontrol.io/)**
 		- open Command Palette (<kbd>CTRL</kbd>+<kbd>SHIFT</kbd>+<kbd>P</kbd>) and pick `Package Control: Add Repository`
-		- Enter `https://github.com/SammaySarkar/XYplorer` as the Repository URL
+		- Enter `https://github.com/Binocular222/XYplorer/` as the Repository URL
 		- Now do `Package Control: Install Package`, search for and install `XYplorer`
 	+ **Without Package Control**
-		- Download this repo as [zip](https://github.com/SammaySarkar/XYplorer/archive/master.zip).
+		- Download this repo as [zip](https://github.com/Binocular222/XYplorer/archive/master.zip).
 		  There will be a folder inside the zip. Extract and rename the folder to `XYplorer` and move to ` \Data\Packages\ ` .
 		- ALTERNATIVELY, and *only if running Sublime Text 3*, zip up *the contents* inside of that `XYplorer` folder,
 		  rename the zip file to XYplorer.sublime-package` and paste it to ` \Data\Installed Packages\ ` .

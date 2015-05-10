@@ -192,7 +192,6 @@
 		{"trigger": "winsize", "contents": "winsize ${1:[width=0]}, ${2:[height=0]};"},
 		{"trigger": "wipe", "contents": "wipe ${1:[itemlist]};"},
 		{"trigger": "writepv", "contents": "writepv ${1:[file]};"},
-
 		{"trigger": "call", "contents": "call $1 ;"},
 		{"trigger": "escapeunicode", "contents": "escapeunicode $1 ;"},
 		{"trigger": "enumshellfolderitems", "contents": "enumshellfolderitems $1 ;"},
@@ -215,6 +214,7 @@
 		{ "trigger": "cc_path\t<cc_path>", "contents": "<cc_path>"},
 		{ "trigger": "cc_ext\t<cc_ext>", "contents": "<cc_ext>"},
 		{ "trigger": "cc_isfolder\t<cc_isfolder>", "contents": "<cc_isfolder>"},
+
 		{ "trigger": "crlf\t<crlf>", "contents": "<crlf$1>"},
 		{ "trigger": "tab\t<tab>", "contents": "<tab$1>"},
 		{ "trigger": "clipboard\t<clipboard>", "contents": "<clipboard>"},
@@ -222,6 +222,7 @@
 		{ "trigger": "hwnd\t<hwnd>", "contents": "<hwnd>"},
 		{ "trigger": "taggedcolumn\t<taggedcolumn>", "contents": "<taggedcolumn>"},
 		{ "trigger": "taggeditem\t<taggeditem>", "contents": "<taggeditem>"},
+
 		{ "trigger": "path 1\t<path 1>", "contents": "<path 1>"},
 		{ "trigger": "path 2\t<path 2>", "contents": "<path 2>"},
 		{ "trigger": "xy\t<xy>", "contents": "<xy>"},
@@ -245,6 +246,7 @@
 		{ "trigger": "item\t<item>", "contents": "<item$1>"}, //numbered items
 		{ "trigger": "items\t<items>", "contents": "<items>"},
 		{ "trigger": "title\t<title>", "contents": "<title>"},
+
 		{ "trigger": "pfaitem\t<pfaitem>", "contents": "<pfaitem>"},
 		{ "trigger": "focitem\t<focitem>", "contents": "<focitem>"},
 		{ "trigger": "selitem\t<selitem>", "contents": "<selitem>"},
@@ -272,7 +274,6 @@
 		// { "trigger": "heightbox\t<heightbox>", "contents": "<heightbox>"},
 		// { "trigger": "widthall\t<widthall>", "contents": "<widthall>"},
 		// { "trigger": "heightall\t<heightall>", "contents": "<heightall>"},
-
 
 		// System Variables (default list)
 		{"trigger": "allusersprofile\t%allusersprofile%", "contents": "%ALLUSERSPROFILE%"},

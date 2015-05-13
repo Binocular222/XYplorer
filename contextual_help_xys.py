@@ -33,7 +33,7 @@ class contextual_help_xys(sublime_plugin.TextCommand):
 				subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting_comref.htm#idh_sc_" + ScopeText])
 			else:
 				subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting.htm"])
-		elif ScopeName == "source.xys entity.name.function.CommandID.xys":
+		elif "entity.name.function.CommandID.xys" in ScopeName:
 			# remember to strip 231-236 (New item template customizations) + 303...310 (thumbsizes)
 			# + 594,595 (Userprofile name)+ 862-867 (lbl names) + 442...464 (dates) + > 1400 (UDC)
 			CmdDict = {

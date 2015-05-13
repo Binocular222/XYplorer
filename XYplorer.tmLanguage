@@ -310,6 +310,12 @@
 					<key>match</key>
 					<string>&lt;[ .,\*\|\#\:\-\+\w]+&gt;|%[A-Za-z0-9()_-]+%</string>
 				</dict>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.CommandID.xys</string>
+					<key>match</key>
+					<string>(?&lt;!\w)#1?\d{3}(?!\w)</string>
+				</dict>
 			</array>
 		</dict>
 

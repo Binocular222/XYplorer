@@ -3,16 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>name</key>
-	<string>XYplorer</string>
+	<string>XYplorer.tmLanguage</string>
 	<key>scopeName</key>
 	<string>source.xys</string>
 	<key>fileTypes</key>
 		<array>
-		<string>xys</string>
-		<string>xyi</string>
-		<string>inc</string>
+			<string>xys</string>
+			<string>xyi</string>
+			<string>inc</string>
 		</array>
-
+	<key>hidden</key>
+	<true/>
 	<key>patterns</key>
 	<array>
 

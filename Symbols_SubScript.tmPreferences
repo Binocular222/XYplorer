@@ -6,7 +6,7 @@
 	<key>name</key>
 	<string>SymbolsSubScript</string>
 	<key>scope</key>
-	<string>source.xys meta.class.scriptcaption.xys</string>
+	<string>source.xys string.other.scriptcaption.xys</string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>

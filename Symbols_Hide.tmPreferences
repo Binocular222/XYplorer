@@ -6,7 +6,7 @@
 	<key>name</key>
 	<string>SymbolsHidden</string>
 	<key>scope</key>
-	<string>source.xys entity.name.function.xys, source.xys entity.name.function.CommandID.xys, source.xys entity.name.function.UDF.xys</string>
+	<string>source.xys entity.name.function.xys, source.xys entity.name.function.CommandID.xys, source.xys entity.name.function.UDF.xys, source.xys entity.name.section.NS.xys</string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>

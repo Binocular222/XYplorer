@@ -8,21 +8,18 @@ class contextual_help_xys(sublime_plugin.TextCommand):
 		ScopeText = self.view.substr(self.view.extract_scope(CursorLocation.a)).lower()
 		if ScopeName == "source.xys entity.name.function.UDF.xys":
 			# need to handle namespaces
-			self.view.window().run_command('goto_definition')
-		elif ScopeName == "source.xys string":
-			# goto subscript by label; needs huge refinement
-			self.view.window().run_command('goto_definition')
+			self.view.window().run_command('goto_definition', {"symbol" : ScopeText + '  [udf]'})
+		elif ScopeName == "source.xys entity.name.section.NS.xys":
+			self.view.window().run_command('goto_definition', {"symbol" : ScopeText + '   [ns]'})
 		elif ScopeName == "source.xys entity.name.function.xys":
 			subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting_comref.htm#idh_sc_" + ScopeText])
 		elif ScopeName == "source.xys variable.parameter.xys":
 			subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting.htm#idh_scripting_variables"])
 		elif ScopeName == "source.xys variable.parameter.native.xys":
 			subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_variables.htm"])
-		elif ScopeName == "source.xys keyword.operator":
+		elif ScopeName == "source.xys keyword.operator.xys":
 			subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting.htm#idh_scripting_operatorprecedence"])
-		elif ScopeName == "source.xys string.unquoted.heredoc":
-			subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting.htm#idh_scripting_heredoc"])
-		elif ScopeName == "source.xys string.unquoted.nowdoc":
+		elif ScopeName == "source.xys string.unquoted.heredoc.xys" or ScopeName == "source.xys string.unquoted.nowdoc.xys":
 			subprocess.Popen(["hh.exe", xypath + "\\XYplorer.chm::/idh_scripting.htm#idh_scripting_heredoc"])
 		elif ScopeName == "source.xys keyword.control.xys":
 			ScopeText = ScopeText.strip('({')

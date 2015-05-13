@@ -12,13 +12,11 @@
 		<key>showInSymbolList</key>
 		<integer>1</integer>
 		<key>symbolTransformation</key>
-		<string>/(\w)/\L\1/g</string>   <!-- Convert to lower case -->
-		<!-- <string>/^(\w+)$/\L\1   [function]/g</string> -->
+		<string>/^(.*)$/\L\1  [udf]/g</string>   <!-- Convert to lower case -->
 		<key>showInIndexedSymbolList</key>
-		<string>1</string>
+		<integer>1</integer>
 		<key>symbolIndexTransformation</key>
-		<string>/(\w)/\L\1/g</string>
-		<!-- <string>/^(\w+)$/\L\1   [function]/g</string> -->
+		<string>/^(.*)$/\L\1  [udf]/g</string>
 	</dict>
 </dict>
 </plist>

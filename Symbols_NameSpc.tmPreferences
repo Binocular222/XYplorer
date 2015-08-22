@@ -12,9 +12,11 @@
 		<key>showInSymbolList</key>
 		<integer>1</integer>
 		<key>symbolTransformation</key>
-		<string>/^(.*)$/\L\1  [ns]/g</string>
+		<string>/^(.*)$/NS: \L\1/g</string>   <!-- Convert to lower case -->
 		<key>showInIndexedSymbolList</key>
-		<integer>0</integer>
+		<integer>1</integer>
+		<key>symbolIndexTransformation</key>
+		<string>/^(.*)$/NS: \L\1/g</string>
 	</dict>
 </dict>
 </plist>

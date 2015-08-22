@@ -1,11 +1,9 @@
 <snippet>
 	<content>
-FUNCTION ${1:functionName}(${2:\$param1, \$param2, \$param3}) {
-${3:/*
-  Description
-*/}
+<![CDATA[FUNCTION ${1:functionName}(${2:\$param1, \$param2, \$param3}) {
+${3:/* Description */}
 	${4:return };
-}
+}]]>
 	</content>
 	<tabTrigger>function</tabTrigger>
 	<scope>source.xys</scope>

@@ -1,8 +1,8 @@
 <snippet>
 	<content>
-foreach (${1:\$token}, ${2:\$tokenlist}, ${3:"|"}) {
+<![CDATA[foreach (${1:\$token}, ${2:\$tokenlist}, ${3:"|"}) {
 	$4;
-}
+}]]>
 	</content>
 	<tabTrigger>foreach</tabTrigger>
 	<scope>source.xys</scope>

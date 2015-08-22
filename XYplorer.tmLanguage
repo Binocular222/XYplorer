@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>name</key>
-	<string>XYplorer.tmLanguage</string>
+	<string>XYplorer</string>
 	<key>scopeName</key>
 	<string>source.xys</string>
 	<key>fileTypes</key>
@@ -12,8 +12,7 @@
 			<string>xyi</string>
 			<string>inc</string>
 		</array>
-	<key>hidden</key>
-	<true/>
+
 	<key>patterns</key>
 	<array>
 
@@ -36,7 +35,7 @@
 			<key>name</key>
 			<string>entity.name.function.xys</string>   <!-- native functions,eg: abs(num) -->
 			<key>match</key>
-			<string>(?i)\b(?:abs|asc|attrstamp|base64decode|base64encode|caller|catalogreport|ceil|cell|chr|colorfilter|columnlayout|compare|confirm|copier|ctbicon|ctbname|ctbstate|datediff|eval|exists|extracttext|extratag|filesequal|filesize|filetype|floor|folderreport|foldersize|format|formatbytes|formatdate|formatlist|get|getinfo|getkey|getpathcomponent|getsectionlist|gettoken|gettokenindex|hash|hexdump|hextodec|html|input|inputfile|inputfolder|inputselect|isset|isunicode|listfolder|listpane|loadlayout|md5|new|now|paperfolder|popupmenu|property|quote|rand|readfile|readurl|recase|regexmatches|regexreplace|renameitem|replace|replacelist|report|resolvepath|round|row|runret|savethumb|self|setcolumns|seticons|setlayout|strlen|strpos|strrepeat|substr|sync|tab|tabset|tagitems|taglist|toolbar|trim|tweak|urldecode|urlencode|utf8decode|utf8encode|writefile|zip_add|zip_extract|zip_list)(?=\s*\()</string>
+			<string>(?i)\b(?:abs|asc|attrstamp|base64decode|base64encode|caller|catalogreport|ceil|cell|chr|colorfilter|columnlayout|compare|confirm|copier|ctbicon|ctbname|ctbstate|datediff|datepicker|eval|exists|extracttext|extratag|filesequal|filesize|filetype|floor|folderreport|foldersize|format|formatbytes|formatdate|formatlist|get|getinfo|getkey|getpathcomponent|getsectionlist|gettoken|gettokenindex|ghost|hash|hexdump|hextodec|html|input|inputfile|inputfolder|inputselect|isset|isunicode|listfolder|listpane|loadlayout|md5|new|now|paperfolder|popupmenu|property|quicksearch|quote|rand|readfile|readurl|recase|regexmatches|regexreplace|renameitem|replace|replacelist|report|resolvepath|round|row|runret|savethumb|self|setcolumns|seticons|setlayout|strlen|strpos|strrepeat|substr|sync|tab|tabset|tagitems|taglist|toolbar|trim|tweak|urldecode|urlencode|utf8decode|utf8encode|writefile|zip_add|zip_extract|zip_list)(?=\s*\()</string>
 		</dict>
 
 		<dict>
@@ -62,7 +61,8 @@
 
 		<dict>
 			<key>match</key>
-			<string>(?i)^\s*(include)\s+(.+?)\s*;?\s*$</string>
+			<!--<string>(?i)^\s*(include(?:_once)?)\s+(.+?)\s*;?\s*$</string>-->
+            <string>(?i)^\s*(include(?:_once)?)\s+(&quot;[^&quot;]+&quot;|'[^']+'|(?!&quot;|')[^;]+(?!&quot;|'));?\s*</string>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
@@ -75,6 +75,11 @@
 					<key>name</key>
 					<string>string.other.INC.xys</string>
 				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>comment.line.xys</string>
+				</dict>
 			</dict>
 		</dict>
 
@@ -82,7 +87,7 @@
 			<key>comment</key>
 			<string>namespace definition</string>
 			<key>match</key>
-			<string>(?i)^(namespace)\s+(\w+)$</string> <!-- namespace cmd must be unindented -->
+			<string>(?i)^\s*(namespace)\s+(\w+)$</string>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
@@ -145,7 +150,7 @@
 			<key>name</key>
 			<string>keyword.operator.xys</string>
 			<key>match</key>
-			<string>([\!)(){},]|[\*\+-\/\^%]|\sUnLikeI?\s|\sLikeI?\s|\sAND\s|\sOR\s|\sXOR\s|\sNOT\s|\s\|\|\s|\B-\B|=|\s+\.\s+|(?&lt;!\w)&gt;|&lt;(?![\w&lt;])|\B&amp;?\W&amp;\B)</string>   <!--Match:  ! = || LikeI? UnLikeI? AND OR NOT XOR < > && -->
+			<string>([\!)(){},]|[\*\+-\/\^%]|\sUnLikeI?\s|\sLikeI?\s|\sAND\s|\sOR\s|\sXOR\s|\sNOT\s|\s\|\|\s|\B-\B|=|\s+\.\s+|(?&lt;!\w)&gt;|&lt;(?![\w&lt;])|\B&amp;&amp;?\B)</string>
 		</dict>
 
 		<dict>
@@ -173,17 +178,17 @@
 			<key>name</key>
 			<string>string.unquoted.nowdoc.xys</string> <!-- radical nowdoc -->
 			<key>begin</key>
-			<string>&lt;{3}'([^#].*)'$</string>
+			<string>&lt;{3}#'(.*)'$</string>
 			<key>end</key>
-			<string>^\1;?$</string>
+			<string>#\1</string>
 		</dict>
 		<dict>
 			<key>name</key>
 			<string>string.unquoted.nowdoc.xys</string> <!-- regular nowdoc -->
 			<key>begin</key>
-			<string>&lt;{3}#'(.*)'$</string>
+			<string>&lt;{3}'([^#].*)'$</string>
 			<key>end</key>
-			<string>#\1</string>
+			<string>^\1;?$</string>
 		</dict>
 		<dict>
 			<key>name</key>

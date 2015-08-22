@@ -1,6 +1,6 @@
 <snippet>
 	<content>
-if (${1:expression}) {
+<![CDATA[if (${1:expression}) {
 	$2;
 }
 ${3:elseif (${4:expression}) {
@@ -9,7 +9,7 @@ ${3:elseif (${4:expression}) {
 ${6:else {
 	$7;
 }
-}
+}]]>
 	</content>
 	<tabTrigger>ifelse</tabTrigger>
 	<scope>source.xys</scope>

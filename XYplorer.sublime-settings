@@ -9,5 +9,6 @@
 	"tab_size": 2,
 	"word_wrap": false,
 	"word_separators": "./\\()\"'-:,.;>~!@#^&*|+=[]{}`~?",  //removed < $ % compared to defaults, for triggering auto-completion
-	"xypath": "C:\\Program Files\\XYplorer"
+	"xypath": "E:\\Utilities\\XYplorer",
+	"xyscripts": "E:\\Utilities\\XYplorer\\Data\\scripts"
 }

@@ -1,7 +1,7 @@
 <snippet>
 	<content>
-&lt;&lt;&lt;#${1:HEREDOC}
-$2#${1:HEREDOC};
+<![CDATA[<<<#${1:HEREDOC}
+$2#${1:HEREDOC};]]>
 	</content>
 	<tabTrigger>heredocalternative</tabTrigger>
 	<scope>source.xys</scope>

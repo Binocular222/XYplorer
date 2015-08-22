@@ -12,9 +12,11 @@
 		<key>showInSymbolList</key>
 		<integer>1</integer>
 		<!-- <key>symbolTransformation</key>
-		<string>/"(\w+)"/\1/g</string> -->   <!-- extract caption or label -->
+		<string>/"(\w+)"/Sub: \1/g</string> -->   <!-- extract caption or label -->
 		<key>showInIndexedSymbolList</key>
 		<integer>0</integer>
+		<!-- <key>symbolTransformation</key>
+		<string>/"(\w+)"/Sub: \1/g</string> -->
 	</dict>
 </dict>
 </plist>

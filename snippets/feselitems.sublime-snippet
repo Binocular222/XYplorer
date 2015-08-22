@@ -1,9 +1,9 @@
 <snippet>
 	<content>
-\$selitems = get("SelectedItemsPathNames", "|");
+<![CDATA[\$selitems = get("SelectedItemsPathNames", "|");
 foreach(\$item, \$selitems, "|") {
 	$1;
-}
+}]]>
 	</content>
 	<tabTrigger>feselitems</tabTrigger>
 	<scope>source.xys</scope>
